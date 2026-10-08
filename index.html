@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>七上英文段考複習</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2a2140; --ink2:#5b5270; --bg:#fff8ec; --card:#ffffff; --line:#2a2140;
+  --pink:#ff4fa3; --orange:#ff8a00; --yellow:#ffd23f; --lime:#8ad100; --green:#16c784;
+  --cyan:#00b8f0; --blue:#4f7cff; --purple:#8b5cf6; --red:#ff4d5e;
+  --hl:#fff27a; --blank:#ffe066; --blankStripe:#ffd23f; --shown:#ffe6f2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Nunito","Noto Sans TC",system-ui,sans-serif;font-size:17px;line-height:1.85;
+  background-image:radial-gradient(#ffd9b0 1.2px,transparent 1.2px);background-size:22px 22px}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px 80px}
+h1,h2,h3{line-height:1.35;margin:0}
+
+/* ===== top bar ===== */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,248,236,.94);backdrop-filter:blur(8px);
+  border-bottom:3px solid var(--line)}
+.top-in{max-width:900px;margin:0 auto;padding:10px 16px 8px}
+.row1{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{font-weight:900;font-size:19px;display:flex;align-items:center;gap:8px;margin-right:auto}
+.brand .dot{width:14px;height:14px;border-radius:50%;background:conic-gradient(var(--pink),var(--orange),var(--yellow),var(--lime),var(--cyan),var(--purple),var(--pink))}
+.btn{font:inherit;font-size:14px;font-weight:800;border:2.5px solid var(--line);border-radius:999px;padding:4px 14px;
+  background:#fff;color:var(--ink);cursor:pointer;box-shadow:2px 2px 0 var(--line);transition:transform .1s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--line)}
+.btn:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--line)}
+.btn.pk{background:var(--pink);color:#fff}
+.btn.yl{background:var(--yellow)}
+.prog{display:flex;align-items:center;gap:10px;margin-top:8px}
+.bar{flex:1;height:12px;border:2.5px solid var(--line);border-radius:999px;background:#fff;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--orange),var(--yellow),var(--lime),var(--cyan));transition:width .35s}
+.cnt{font-weight:900;font-size:14px;white-space:nowrap}
+.nav{display:flex;gap:6px;overflow-x:auto;padding:8px 0 2px;scrollbar-width:thin}
+.nav a{flex:0 0 auto;text-decoration:none;color:var(--ink);font-size:13px;font-weight:800;padding:2px 10px;border-radius:999px;
+  border:2px solid var(--line);background:#fff}
+.nav a:hover{background:var(--yellow)}
+
+/* ===== hero ===== */
+.hero{margin:28px 0 18px;padding:26px 24px;border:3px solid var(--line);border-radius:26px;background:
+  linear-gradient(135deg,#ff9ccc 0%,#ffc56b 45%,#c6f36b 100%);box-shadow:6px 6px 0 var(--line);position:relative;overflow:hidden}
+.hero h1{font-size:clamp(26px,5vw,38px);font-weight:900}
+.hero p{margin:8px 0 0;font-weight:700}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.legend>span{background:#fff;border:2px solid var(--line);border-radius:12px;padding:2px 10px;font-size:14px;font-weight:700}
+.hero .blob{position:absolute;right:-30px;top:-30px;width:140px;height:140px;border-radius:50%;background:var(--cyan);opacity:.55}
+.hero .blob2{position:absolute;right:70px;bottom:-40px;width:90px;height:90px;border-radius:50%;background:var(--purple);opacity:.45}
+
+/* ===== sections ===== */
+.sec{--c:var(--pink);margin:34px 0;background:var(--card);border:3px solid var(--line);border-radius:24px;
+  box-shadow:6px 6px 0 var(--c);padding:0 0 18px;overflow:hidden}
+.sec-h{display:flex;align-items:center;gap:12px;padding:14px 20px;background:var(--c);border-bottom:3px solid var(--line);flex-wrap:wrap}
+.num{flex:0 0 auto;width:44px;height:44px;border-radius:50%;background:#fff;border:3px solid var(--line);
+  display:grid;place-items:center;font-weight:900;font-size:20px}
+.sec-h h2{font-size:clamp(20px,3.6vw,25px);font-weight:900;color:#fff;text-shadow:2px 2px 0 var(--line);flex:1;min-width:180px}
+.sec-tools{display:flex;gap:6px;align-items:center}
+.sec-tools .mini{font-size:12px;padding:2px 10px}
+.sec-tools .sc{font-weight:900;font-size:13px;background:#fff;border:2px solid var(--line);border-radius:999px;padding:1px 10px}
+.sec-b{padding:6px 22px 0}
+.sec-b>p,.sec-b>ul{margin:12px 0}
+h3{font-size:19px;font-weight:900;margin:22px 0 8px;display:flex;align-items:center;gap:8px}
+h3::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--c);border:2px solid var(--line);transform:rotate(45deg);flex:0 0 auto}
+ul{padding-left:1.3em}
+li{margin:4px 0}
+mark,.hl{background:linear-gradient(transparent 52%,var(--hl) 52%);color:inherit;font-weight:800;padding:0 2px}
+.em{color:var(--pink);font-weight:900}
+.zh{color:var(--ink2);font-size:15px}
+.ex{margin:6px 0;padding-left:34px;position:relative}
+.ex::before{content:"例";position:absolute;left:0;top:3px;width:24px;height:24px;border-radius:7px;background:var(--ink);color:#fff;
+  font-size:13px;font-weight:900;display:grid;place-items:center;line-height:1}
+.x{color:var(--red);font-weight:800}
+.o{color:var(--green);font-weight:800}
+.arrow{color:var(--ink2);font-weight:900}
+
+/* callout boxes */
+.box{margin:16px 0;border:2.5px solid var(--line);border-radius:18px;padding:12px 16px 12px;position:relative;background:#fff}
+.box .tag{display:inline-block;font-size:14px;font-weight:900;border:2px solid var(--line);border-radius:999px;padding:0 12px;margin-bottom:6px;color:#fff}
+.box p{margin:6px 0}
+.tip{background:#f4efff}.tip .tag{background:var(--purple)}
+.warn{background:#fff0f2}.warn .tag{background:var(--red)}
+.cmp{background:#e9fbff}.cmp .tag{background:var(--cyan)}
+.gem{background:#fff4e5}.gem .tag{background:var(--orange)}
+.prac{background:#f3ffe0}.prac .tag{background:var(--lime);color:var(--ink)}
+.key{background:#fffbe0}.key .tag{background:var(--yellow);color:var(--ink)}
+.prac ol{margin:6px 0;padding-left:1.6em}
+.prac li{margin:8px 0}
+
+/* tables */
+.tw{overflow-x:auto;margin:12px 0;border:2.5px solid var(--line);border-radius:16px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:16px}
+table.wide{min-width:560px}
+th,td{padding:7px 12px;border-bottom:1.5px dashed #d8d0e6;border-right:1.5px dashed #d8d0e6;text-align:left;vertical-align:middle}
+tr>*:last-child{border-right:0}
+tbody tr:last-child>*{border-bottom:0}
+th{background:var(--c);color:#fff;font-weight:900;text-shadow:1px 1px 0 rgba(0,0,0,.25);border-bottom:2.5px solid var(--line)}
+tbody tr:nth-child(even) td{background:#fffaf2}
+td.rh{font-weight:900;background:#fff3d6 !important}
+.c{text-align:center}
+
+/* chips grid */
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:12px 0}
+.tile{border:2.5px solid var(--line);border-radius:16px;padding:10px 14px;background:#fff}
+.tile h4{margin:0 0 4px;font-size:16px;font-weight:900}
+.tile.p{background:#ffe3f1}.tile.o2{background:#ffeccc}.tile.y{background:#fff7c2}.tile.g{background:#e3f9c8}.tile.b{background:#dcf3ff}.tile.v{background:#ece4ff}
+
+/* blanks */
+.bk{display:inline-block;min-width:2.6em;padding:0 7px;margin:1px 2px;border-radius:9px;cursor:pointer;
+  color:transparent;background:repeating-linear-gradient(-45deg,var(--blank) 0 8px,var(--blankStripe) 8px 16px);
+  border:2px dashed var(--line);line-height:1.5;font-weight:800;user-select:none;transition:transform .12s;position:relative;text-align:center}
+.bk:hover{transform:translateY(-2px) rotate(-1deg)}
+.bk:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.bk.on{color:#d1006b;background:var(--shown);border:2px solid var(--pink);animation:pop .32s ease}
+@keyframes pop{0%{transform:scale(.7)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+.spark{position:fixed;width:9px;height:9px;border-radius:50%;pointer-events:none;z-index:99;animation:fly .6s ease-out forwards}
+@keyframes fly{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+@media (prefers-reduced-motion:reduce){.bk.on{animation:none}.spark{display:none}html{scroll-behavior:auto}}
+
+/* MC */
+.mc{list-style:none;padding:0;margin:8px 0}
+.mc>li{border:2px solid var(--line);border-radius:14px;padding:10px 14px;margin:10px 0;background:#fff}
+.opts{display:flex;flex-wrap:wrap;gap:4px 18px;color:var(--ink2);font-size:16px}
+
+.foot{text-align:center;margin-top:40px;font-weight:800;color:var(--ink2)}
+.toTop{position:fixed;right:16px;bottom:16px;z-index:40;width:48px;height:48px;border-radius:50%;font-size:20px;padding:0}
+
+@media (max-width:600px){
+  body{font-size:16px}
+  .sec-b{padding:4px 14px 0}
+  .sec-h{padding:12px 14px}
+  .num{width:38px;height:38px;font-size:17px}
+  table{font-size:15px}
+  .brand{font-size:15px}
+  .row1{flex-wrap:nowrap;gap:6px}
+  .row1 .btn{font-size:12px;padding:3px 9px}
+  .top-in{padding:8px 16px 6px}
+  .prog{margin-top:6px}
+  .nav{padding-top:6px}
+}
+</style>
+</head>
+<body>
+
+<div class="top"><div class="top-in">
+  <div class="row1">
+    <div class="brand"><span class="dot"></span>七上英文段考複習</div>
+    <button class="btn yl" id="hideAll">🙈 全部蓋回</button>
+    <button class="btn pk" id="showAll">👀 全部揭曉</button>
+  </div>
+  <div class="prog"><div class="bar"><i id="barFill"></i></div><div class="cnt" id="cnt">0 / 0</div></div>
+  <nav class="nav" id="nav"></nav>
+</div></div>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="blob"></div><div class="blob2"></div>
+  <h1>🎯 七上第一次段考・英文文法總複習</h1>
+  <p>整理自：七上1段複習、名詞單複數（上課）、指示代名詞 10.6</p>
+  <div class="legend">
+    <span>👆 點 <span class="bk" style="cursor:default">答案</span> 才會顯示答案</span>
+    <span><mark>螢光筆</mark> = 必考重點</span>
+    <span>✏️ 綠框 = 非試不可練習</span>
+    <span>❤️ 紅框 = 易錯</span>
+  </div>
+</header>
+
+<!-- ===================== 1 ===================== -->
+<section class="sec" id="s1" style="--c:var(--cyan)" data-title="數字讀法">
+<div class="sec-h"><div class="num">1</div><h2>what 問人名與電話號碼・數字讀法</h2></div>
+<div class="sec-b">
+  <div class="tw"><table>
+    <tr><th>問句</th><th>答句</th></tr>
+    <tr><td>What is your name?</td><td>My name is [[Jane]].</td></tr>
+    <tr><td>What is your phone number?</td><td>[[It's]] 0921-123-456.</td></tr>
+  </table></div>
+
+  <h3>一位數 0～9</h3>
+  <div class="tw"><table>
+    <tr><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr>
+    <tr><td>[[zero / oh]]</td><td>one</td><td>two</td><td>three</td><td>four</td><td>five</td><td>six</td><td>seven</td><td>eight</td><td>nine</td></tr>
+  </table></div>
+  <p>讀電話號碼時，數字須<mark>一個一個讀出</mark>，若有連字號（-）要<mark>稍停頓</mark>。</p>
+  <p class="ex">02-2345-6789 → zero/oh two, two three four five, six seven eight nine</p>
+  <div class="box tip"><span class="tag">📝 用法小秘訣</span>
+    <p>電話號碼中有<mark>兩個 0</mark> 時，常唸成 [[zero zero]] 或 [[double zero]]。</p>
+    <p class="ex">2345-6700 → two three four five, six seven zero/double zero</p>
+  </div>
+
+  <h3>二位數</h3>
+  <p>① 10～19 為固定用法，其中 <mark>13～19 字尾都是 [[teen]]</mark>。</p>
+  <div class="tw"><table>
+    <tr><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th></tr>
+    <tr><td>ten</td><td>[[eleven]]</td><td>[[twelve]]</td><td>[[thirteen]]</td><td>fourteen</td><td>[[fifteen]]</td><td>sixteen</td><td>seventeen</td><td>[[eighteen]]</td><td>nineteen</td></tr>
+  </table></div>
+  <p>② 20, 30, 40…90 為固定用法，<mark>字尾都是 [[ty]]</mark>。</p>
+  <div class="tw"><table>
+    <tr><th>20</th><th>30</th><th>40</th><th>50</th><th>60</th><th>70</th><th>80</th><th>90</th></tr>
+    <tr><td>[[twenty]]</td><td>[[thirty]]</td><td>[[forty]]</td><td>[[fifty]]</td><td>sixty</td><td>seventy</td><td>[[eighty]]</td><td>ninety</td></tr>
+  </table></div>
+  <div class="box warn"><span class="tag">❤️ 愛的小叮嚀・易錯</span>
+    <p>14 為 fourteen，但 40 為 <b>forty</b>，<mark>沒有 [[u]]</mark>，容易拼錯，請注意拼法！</p>
+  </div>
+</div></section>
+
+<!-- ===================== 2 ===================== -->
+<section class="sec" id="s2" style="--c:var(--purple)" data-title="名詞分類">
+<div class="sec-h"><div class="num">2</div><h2>名詞的種類</h2></div>
+<div class="sec-b">
+  <p>名詞代表的就是人、事、物、地方…等名稱。中文的名詞沒有單複數變化，但<mark>英文名詞必須留意單數與複數、可數與不可數</mark>的不同。</p>
+  <p>名詞依是否可計算數目來分類，可分成 <b class="em">[[可數名詞]]</b>（可計算數目）及 <b class="em">[[不可數名詞]]</b>（無法計算數目）。</p>
+  <div class="grid">
+    <div class="tile p"><h4>可數 ❶ [[普通名詞]]</h4>泛指一般可計數的人、動物、事物…等的名詞。<br>parent(s) 父／母親・rabbit 兔子・toy 玩具</div>
+    <div class="tile v"><h4>可數 ❷ [[集合名詞]]</h4>表示集合體的名詞。family 家庭；家人・class 班級・team 隊伍<br>※ 視為一體時 → [[單數]]<br>※ 表示多人時 → [[複數]]
+      <p class="ex" style="margin-top:6px">We're [[a]] happy family. <span class="zh">我們是一個快樂的家庭。</span></p>
+      <p class="ex">My family [[are]] all very tall. <span class="zh">我的家人都很高。</span></p></div>
+    <div class="tile b"><h4>不可數 ❶ [[物質名詞]]</h4>沒有固定形狀的物質或類別名稱。<br>air 空氣・water 水・food 食物</div>
+    <div class="tile y"><h4>不可數 ❷ [[抽象名詞]]</h4>非實質存在的事物。<br>fun 樂趣・love 愛・hope 希望</div>
+    <div class="tile o2"><h4>不可數 ❸ [[專有名詞]]</h4>特定的人、動物、事物、地點…等的名稱。<br>Rocky 洛基（人／狗名）・English 英文・Taipei 台北</div>
+  </div>
+  <p class="zh">（名詞上課講義的分類：可數名詞 → 單數名詞、複數名詞；不可數名詞 → 專有名詞、抽象名詞、物質名詞）</p>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可</span>
+    <p>判斷下列字詞為可數（C）或不可數（U）：</p>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:4px 12px">
+      <div>1. camera [[C]]</div><div>2. music [[U]]</div><div>3. parent [[C]]</div>
+      <div>4. magic [[U]]</div><div>5. milk [[U]]</div><div>6. Taiwan [[U]]</div>
+      <div>7. polar bear [[C]]</div><div>8. mask [[C]]</div><div>9. bread [[U]]</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===================== 3 ===================== -->
+<section class="sec" id="s3" style="--c:var(--orange)" data-title="a / an">
+<div class="sec-h"><div class="num">3</div><h2>不定冠詞 a(n) 之用法</h2></div>
+<div class="sec-b">
+  <p>單數的可數名詞，指「一個」時，前面應加上 a 或 an：</p>
+  <div class="grid">
+    <div class="tile y"><h4>a ＋ [[子音]] 開頭的單字</h4>a person 一個人<br>a beautiful actress 一位美麗的女演員<br>a cat・a dog</div>
+    <div class="tile p"><h4>an ＋ [[母音]] 開頭的單字</h4>母音：a e i o u<br>an eye 一隻眼睛・an apple</div>
+  </div>
+  <div class="box key"><span class="tag">⭐ 重點：看「發音」不是看字母！</span>
+    <p><b>[[an]]</b> hour <span class="zh">[auə]（h 不發音）</span></p>
+    <p><b>[[an]]</b> M <span class="zh">[ɛm]</span>　　<b>[[an]]</b> S on superman <span class="zh">[ɛs]</span></p>
+  </div>
+  <p>★ <mark>專有名詞（人名、地名等）、科目</mark>…等的前面 <b class="em">[[不加]]</b> a 或 an。</p>
+  <p class="ex">Taiwan 台灣　　math 數學</p>
+</div></section>
+
+<!-- ===================== 4 ===================== -->
+<section class="sec" id="s4" style="--c:var(--green)" data-title="單數用法">
+<div class="sec-h"><div class="num">4</div><h2>可數名詞之單數用法</h2></div>
+<div class="sec-b">
+  <p>可數名詞只有一個時就是「單數」，前方須有<mark>不定冠詞 a(n)、定冠詞 the、所有格或指示形容詞</mark>…等，<b class="em">[[不得單獨使用]]</b>；超過一個時則是「複數」名詞，通常在名詞後面加上 [[s 或 es]]。</p>
+  <p class="ex">a hat 一頂帽子 → two [[hats]]　　a watch 一支手錶 → two [[watches]]</p>
+  <div class="box tip"><span class="tag">📝 用法小秘訣</span>
+    <p>● 單數名詞當主詞 ＋ [[is]]　<span class="zh">The hat is pretty. 這頂帽子很漂亮。</span></p>
+    <p>● 複數名詞當主詞 ＋ [[are]]　<span class="zh">These hats are pretty. 這些帽子很漂亮。</span></p>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th>用法</th><th></th><th>範例</th></tr>
+    <tr><td>❶ 不定冠詞 [[a(n)]]／數字 [[one]]</td><td rowspan="4" class="c rh">＋ 單數名詞</td><td>a boy／one boy 一個男孩</td></tr>
+    <tr><td>❷ 定冠詞 [[the]]</td><td>the boy 這／那個男孩</td></tr>
+    <tr><td>❸ [[所有格]]</td><td>the woman's boy 這／那位女子的兒子<br>her boy 她的兒子</td></tr>
+    <tr><td>❹ 指示形容詞 [[this / that]]</td><td>this boy 這個男孩<br>that boy 那個男孩</td></tr>
+  </table></div>
+
+  <h3>用法說明</h3>
+  <ol>
+    <li>不定冠詞 a(n) 和數字 one 後方接單數名詞，表示 <mark>[[不特定]]的一個</mark>。
+      <p class="ex">I have a camera. 我有一台相機。☞ 未指出是哪一台，僅表示有一台。</p></li>
+    <li>定冠詞 the 後方可接單／複數名詞，接單數名詞時表示 <mark>[[特定]]的一個</mark>。
+      <p class="ex">Look! The cellphone is very cool. 你看！這支手機很酷。☞ 表示特定的一支手機</p></li>
+    <li>所有格後方可接單／複數名詞，接單數名詞時表示 <mark>[[某人的]]一個</mark>。
+      <p class="ex">Mr. and Mrs. Lee are tall. Their son is tall, too. 李先生和李太太很高，他們的兒子也很高。☞ 表示他們的一個兒子</p></li>
+    <li>指示形容詞 this/that 後方接單數名詞，表示 <mark>特定的這／那一個</mark>。
+      <p class="ex">I like this pencil case. 我喜歡這個鉛筆盒。☞ 表示離說話者較近的這一個</p></li>
+  </ol>
+
+  <div class="box cmp"><span class="tag">🔍 傻傻分不清</span>
+    <p>● 定冠詞 the ＋ <b>子音</b>開頭的單字，發音為 [[ [ðə] ]]　<span class="zh">the boy 這／那個男孩</span></p>
+    <p>● 定冠詞 the ＋ <b>母音</b>開頭的單字，發音為 [[ [ði] ]]　<span class="zh">the apple 這／那顆蘋果</span></p>
+  </div>
+
+  <div class="box tip"><span class="tag">📝 用法小秘訣：a(n) vs. one</span>
+    <div class="tw"><table>
+      <tr><th></th><th>a(n)</th><th>one</th></tr>
+      <tr><td class="rh">說明</td><td>a(n) 為不定冠詞，後接單數名詞，<br>指 <mark>[[單數的一個]]</mark>。</td><td>one 為數字，後接單數名詞，雖然也指一個，<br>但意味著 <mark>[[其實有更多同類]]的人、事、物</mark>，<br>而這僅是其中之一。</td></tr>
+      <tr><td class="rh">範例</td><td>He is a great dancer.<br><span class="zh">他是個很棒的舞蹈家。</span></td><td>I know a lot of ways to open the box.<br>This is one example.<br><span class="zh">我知道許多方法可以打開這個箱子，這是其中一個例子。</span></td></tr>
+    </table></div>
+  </div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：引導式翻譯（一格限填一字）</span>
+    <ol>
+      <li>這支麥克筆　[[this / the]] marker</li>
+      <li>一隻蝴蝶　[[a / one]] butterfly</li>
+      <li>我們的英文老師　[[our]] English teacher</li>
+      <li>你們的爸爸　[[your]] father</li>
+      <li>那個胖男人　[[that / the]] fat man</li>
+      <li>一本舊字典　[[an / one]] old dictionary</li>
+    </ol>
+  </div>
+</div></section>
+
+<!-- ===================== 5 ===================== -->
+<section class="sec" id="s5" style="--c:var(--blue)" data-title="複數用法">
+<div class="sec-h"><div class="num">5</div><h2>可數名詞之複數用法</h2></div>
+<div class="sec-b">
+  <div class="tw"><table>
+    <tr><th>用法</th><th></th><th>範例</th></tr>
+    <tr><td>❶ [[無修飾詞]]</td><td rowspan="5" class="c rh">＋ 複數名詞</td><td>pens 筆</td></tr>
+    <tr><td>❷ 數字 two/three…</td><td>two pens 二支筆</td></tr>
+    <tr><td>❸ 定冠詞 the</td><td>the pens 這／那些筆</td></tr>
+    <tr><td>❹ 所有格</td><td>the girl's pens 這／那女孩的筆<br>her pens 她的筆</td></tr>
+    <tr><td>❺ 指示形容詞 [[these / those]]</td><td>these pens 這些筆<br>those pens 那些筆</td></tr>
+  </table></div>
+
+  <h3>用法說明</h3>
+  <ol>
+    <li>複數名詞前方無其他修飾字詞時 <mark>泛指[[全體]]</mark>。
+      <p class="ex">Rats are ugly. 老鼠很醜。☞ 泛指一般老鼠都很醜</p></li>
+    <li>大於一的數字 two/three… 後方接複數名詞，表示 <mark>[[不特定]]的多個</mark>。
+      <p class="ex">I have three markers. 我有三支麥克筆。☞ 未指出哪三支，僅表示有三支</p></li>
+    <li>定冠詞 the 後方可接單／複數名詞，接複數名詞時表示 <mark>[[特定]]的多個</mark>。
+      <p class="ex">Look! The girls are beautiful. 你看！這些女孩很漂亮。☞ 表示特定的女孩們</p></li>
+    <li>所有格後方可接單／複數名詞，接複數名詞時表示 <mark>某人的多個</mark>。
+      <p class="ex">Mrs. Wang is tall. Her daughters are tall, too. 王太太很高，她的女兒們也很高。☞ 表示她的多個女兒</p></li>
+    <li>指示形容詞 these/those 後方接複數名詞，表示 <mark>特定的這些／那些</mark>。
+      <p class="ex">These swimmers are thin. 這些游泳的人很瘦。☞ 表示離說話者較近的這些人</p></li>
+  </ol>
+
+  <div class="box gem"><span class="tag">💎 文法壓箱寶・進階</span>
+    <p>● 數字 ＋ dozen/hundred/thousand（<mark>[[不加 s]]</mark>）＋ 複數名詞　…十或打／百／千…</p>
+    <p class="ex">a dozen eggs 一打蛋　　five thousand students 五千名學生</p>
+    <p>● dozens/hundreds/thousands ＋ [[of]] ＋ 複數名詞　數十或數打／百／千…</p>
+    <p class="ex">dozens of pens 數打筆　　hundreds of spiders 數百隻蜘蛛</p>
+    <p>● tens of thousands of ＋ 複數名詞　數萬的…；成千上萬的…</p>
+    <p class="ex">tens of thousands of people 數萬人</p>
+    <p>● hundreds of thousands of ＋ 複數名詞　數十萬的…</p>
+    <p class="ex">hundreds of thousands of dollars 數十萬元</p>
+  </div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：引導式翻譯（一格限填一字）</span>
+    <ol>
+      <li>我的父母親　my [[parents]]</li>
+      <li>那些面具　[[those / the]] masks</li>
+      <li>數千人　[[thousands]] [[of]] people</li>
+      <li>那個男孩的朋友們　[[that / the]] boy's friends</li>
+      <li>兩隻狗和三隻貓　[[two]] dogs and [[three]] cats</li>
+      <li>這些餅乾　[[these / the]] cookies</li>
+    </ol>
+  </div>
+</div></section>
+
+<!-- ===================== 6 ===================== -->
+<section class="sec" id="s6" style="--c:var(--pink)" data-title="複數變化">
+<div class="sec-h"><div class="num">6</div><h2>可數名詞之複數變化</h2></div>
+<div class="sec-b">
+  <div class="tw"><table>
+    <tr><th>複數形成規則</th><th>範例</th></tr>
+    <tr><td>❶ 一般名詞 → [[＋ s]]</td><td>candle → candles／girl → girls</td></tr>
+    <tr><td>❷ 字尾為 s, z, x, sh, ch → [[＋ es]]</td><td>class → [[classes]]／brush → [[brushes]]</td></tr>
+    <tr><td>❸ 字尾為「子音＋y」→ [[去 y ＋ ies]]</td><td>city → [[cities]]／party → [[parties]]</td></tr>
+    <tr><td>❹ 字尾為「母音＋y」→ [[直接＋ s]]</td><td>boy → [[boys]]／toy → toys</td></tr>
+    <tr><td>❺ 字尾為 f, fe → [[去 f, fe ＋ ves]]</td><td>leaf → [[leaves]]／knife → [[knives]]</td></tr>
+    <tr><td>❻ 單複數同形 → [[不變]]</td><td>sheep → [[sheep]]／deer → [[deer]]</td></tr>
+    <tr><td>❼ 不規則複數名詞 → 無規則</td><td>man → [[men]] [mɛn]／foot → [[feet]] [fit]</td></tr>
+  </table></div>
+  <p>※ 注意 quiz 的複數形為 <b>[[quizzes]]</b> [ˈkwɪzɪz]</p>
+
+  <div class="box key"><span class="tag">⭐ 上課口訣：死・幽・浮 ＋ es</span>
+    <p>字尾是 <b>S</b>（死）、<b>Y</b>、<b>O</b>（幽）、<b>F</b>（浮）這幾類要特別注意：</p>
+    <div class="grid">
+      <div class="tile p"><h4>S 類 → ＋es</h4>buses・boxes・brushes・watches</div>
+      <div class="tile y"><h4>子音＋y → [[ies]]</h4>babies・cities<br># 例外（母音＋y 直接 +s）：keys・boys</div>
+      <div class="tile g"><h4>子音＋o → [[es]]</h4>potatoes・tomatoes<br># 母音＋o 直接 +s：radios・videos<br>例外：[[pianos]]・[[photographs]]（take photos）</div>
+      <div class="tile b"><h4>f / fe → [[ves]]</h4>leaves・wives<br>例外：[[roofs]]・[[chiefs]]</div>
+    </div>
+  </div>
+
+  <h3>不規則變化</h3>
+  <div class="tw"><table>
+    <tr><th>類型</th><th>單數 → 複數</th></tr>
+    <tr><td class="rh">man → men</td><td>man（男人）→ [[men]]・woman（女人）→ [[women]]・policeman（警察）→ [[policemen]]<br>gentleman → [[gentlemen]]・salesman → [[salesmen]]</td></tr>
+    <tr><td class="rh">oo → ee</td><td>foot（腳）→ [[feet]]・tooth（牙齒）→ [[teeth]]・goose（鵝）→ [[geese]]</td></tr>
+    <tr><td class="rh">ouse → ice</td><td>mouse（老鼠）→ [[mice]]・louse（跳蚤）→ [[lice]]</td></tr>
+    <tr><td class="rh">特殊字</td><td>child（小孩）→ [[children]]・ox（公牛）→ [[oxen]]</td></tr>
+    <tr><td class="rh">people</td><td>people（人們）＝ person 的複數；一個人 person ＋ s → persons<br><span class="zh">Young people like pop music.</span></td></tr>
+    <tr><td class="rh">單複數同形</td><td>fish（魚）・sheep・deer</td></tr>
+  </table></div>
+
+  <div class="box prac"><span class="tag">✏️ 牛刀小試：改錯（點開看正確寫法）</span>
+    <ol>
+      <li>He is [[a]] teacher.</li>
+      <li>We are [[students]].</li>
+      <li>My parents have ten [[babies]].</li>
+      <li>The [[housewives]] are shopping.</li>
+      <li>[[An]] apple is 5 dollars.</li>
+      <li>[[Women]] love their [[children]].</li>
+      <li>Your [[teeth]] are very beautiful.</li>
+    </ol>
+  </div>
+</div></section>
+
+<!-- ===================== 7 ===================== -->
+<section class="sec" id="s7" style="--c:var(--lime)" data-title="s/es 發音">
+<div class="sec-h"><div class="num">7</div><h2>複數字尾 s/es 發音＋可數/不可數兩用名詞</h2></div>
+<div class="sec-b">
+  <div class="tw"><table>
+    <tr><th>字尾發音</th><th>s/es 唸法</th><th>範例</th></tr>
+    <tr><td>[s], [ʃ], [tʃ] 之外的<b>無聲</b>子音<br>如 [p], [t], [k], [f], [θ]</td><td class="c"><b>[[唸無聲的 [s] ]]</b></td><td>cups [kʌps]・rats [ræts]・masks [mæsks]<br>roofs [rufs]・months [mʌnθs]</td></tr>
+    <tr><td>[z], [ʒ], [dʒ] 之外的<b>有聲</b>子音或母音</td><td class="c"><b>[[唸有聲的 [z] ]]</b></td><td>cars [kɑrz]・names [nemz]<br>zoos [zuz]・toys [tɔɪz]</td></tr>
+    <tr><td>[s], [ʃ], [tʃ], [z], [ʒ], [dʒ]</td><td class="c"><b>[[唸 [ɪz] ]]</b></td><td>buses [ˈbʌsɪz]・roses [ˈrozɪz]・brushes [ˈbrʌʃɪz]<br>garages [gəˈrɑʒɪz]・watches [ˈwɑtʃɪz]・oranges [ˈɔrɪndʒɪz]</td></tr>
+  </table></div>
+  <p>※ 例外：house [haus] 的複數發音為 houses [[ [ˈhauzɪz] ]]</p>
+
+  <div class="box tip"><span class="tag">📝 用法小秘訣</span>
+    <p>當複數名詞字尾發音為 [ts] 時，發音類似注音符號的「[[ㄘ]]」，如 bats [bæts]、cats [kæts]、students [ˈstjudənts]。</p>
+  </div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：寫出複數形＋字尾發音 [s]/[z]/[ɪz]</span>
+    <p class="zh">例：year → years [z]</p>
+    <ol>
+      <li>box → [[boxes]]　[[ɪz]]</li>
+      <li>wife → [[wives]]　[[z]]</li>
+      <li>toy → [[toys]]　[[z]]</li>
+      <li>gift → [[gifts]]　[[s]]</li>
+      <li>twin → [[twins]]　[[z]]</li>
+      <li>camera → [[cameras]]　[[z]]</li>
+      <li>watch → [[watches]]　[[ɪz]]</li>
+      <li>butterfly → [[butterflies]]　[[z]]</li>
+    </ol>
+  </div>
+
+  <div class="box gem"><span class="tag">💎 文法壓箱寶：可數／不可數兩用名詞</span>
+    <div class="tw"><table>
+      <tr><th></th><th>cake</th><th>chicken</th><th>exercise</th><th>fish</th><th>glass</th><th>paper</th><th>room</th><th>time</th></tr>
+      <tr><td class="rh">可數</td><td>[[整個蛋糕]]</td><td>[[雞]]</td><td>體操；練習題</td><td>魚；魚類</td><td>[[玻璃杯]]</td><td>報紙；報告</td><td>[[房間]]</td><td>[[次數]]</td></tr>
+      <tr><td class="rh">不可數</td><td>[[部分蛋糕]]</td><td>[[雞肉]]</td><td>鍛鍊；運動</td><td>魚肉</td><td>[[玻璃]]</td><td>[[紙張]]</td><td>[[空間]]</td><td>[[時間]]</td></tr>
+    </table></div>
+    <p class="ex">I want to eat some cake. 我想要吃一些蛋糕。☞ 指[[一部分蛋糕]]</p>
+    <p class="ex">This is a birthday cake. 這是個生日蛋糕。☞ 指完整的一個蛋糕</p>
+    <p class="ex">I like chicken. 我喜歡雞肉。☞ 指喜歡吃[[雞肉]]，而非「雞」這個動物</p>
+    <p class="ex">My grandpa and grandma have some chickens on their farm. 我祖父母的農場有養一些雞。☞ 指有一些雞這種動物</p>
+    <p class="ex">I want to eat fish. 我想要吃魚。☞ 指想吃魚肉</p>
+    <p class="ex">I have two fish in the fishbowl. 我的魚缸裡有兩條魚。☞ 指數量是兩條</p>
+    <p class="ex">Salmon is one of my favorite fish(es). 鮭魚是我最喜歡的其中一種魚類。☞ 指不同種類的魚</p>
+    <p>※ fish 當「魚」時，指數量上超過一條，複數形較常使用 <mark>[[fish]]</mark>。但當「魚類」時，指不同種魚，則複數形使用 fishes 或 fish 皆可。</p>
+  </div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：底線字詞可數 C／不可數 U</span>
+    <ol>
+      <li>I'd like to eat some <u>fish</u>.　[[U]]</li>
+      <li>There are six <u>glasses</u> on the table.　[[C]]</li>
+      <li>Do it one more <u>time</u>!　[[C]]</li>
+      <li>We need to get more <u>exercise</u>.　[[U]]</li>
+      <li>We need some pens and <u>paper</u>.　[[U]]</li>
+      <li>There is a <u>room</u> here.　[[C]]</li>
+    </ol>
+  </div>
+</div></section>
+
+<!-- ===================== 8 ===================== -->
+<section class="sec" id="s8" style="--c:var(--orange)" data-title="所有格">
+<div class="sec-h"><div class="num">8</div><h2>名詞之所有格</h2></div>
+<div class="sec-b">
+  <p>名詞可分成<mark>有生命</mark>與<mark>無生命</mark>兩種，各有其所有格的寫法。</p>
+  <h3>① 有生命名詞：「名詞 ＋ 's」表示某人或動物所擁有</h3>
+  <div class="tw"><table>
+    <tr><th>種類</th><th>規則</th><th>範例</th></tr>
+    <tr><td class="rh">單數名詞</td><td>加 <b>[['s]]</b></td><td>Scott → Scott's hat <span class="zh">Scott 的帽子</span><br>my brother → my brother's pet <span class="zh">我哥哥的寵物</span><br>Ross → Ross's mask <span class="zh">Ross 的面具</span><br>the actress → the actress's new movie <span class="zh">這名女演員的新電影</span></td></tr>
+    <tr><td class="rh">規則複數名詞</td><td>字尾 s 後加 <b>[[ ' ]]</b></td><td>girls → [[girls']] party <span class="zh">女生們的派對</span><br>boys → boys' toys <span class="zh">男生們的玩具</span><br>students → students' workbooks <span class="zh">學生們的作業本</span></td></tr>
+    <tr><td class="rh">不規則複數名詞</td><td>加 <b>[['s]]</b></td><td>men → [[men's]] shoes <span class="zh">男鞋</span><br>women → women's bag <span class="zh">女用提包</span><br>children → [[children's]] park <span class="zh">兒童公園</span></td></tr>
+  </table></div>
+  <p>★ 人名和表示人的名詞，在其後加上 's 即形成「所有格」；若該名詞為字尾是 s 的複數名詞，則在其後加上 ' 即可。</p>
+  <p class="ex">Sam's uncle Sam 的叔叔　　the students' teacher 那些學生的老師</p>
+
+  <div class="box tip"><span class="tag">📝 用法小秘訣</span>
+    <p>● 經典文學、聖經等文獻之中，特別是多音節且字尾為 s 或 sh 的人名，常<mark>只加 [[ ' ]]</mark>。</p>
+    <p class="ex">Achilles' heel 致命弱點（阿基里斯之踵）・Socrates' philosophy 蘇格拉底的哲學・Moses' ten laws 摩西十律・Jesus' miracles 耶穌的神蹟</p>
+    <p>● 名詞所有格 's 的發音規則和複數名詞字尾 s/es 發音相同；而只加 ' 時，則 <mark>[[不用發音]]</mark>。</p>
+    <p class="ex">the girl [gɝl] → the girl's [gɝlz] father 這女孩的父親<br>these boys [bɔɪz] → these boys' [bɔɪz] teacher 這些男孩子們的老師</p>
+  </div>
+
+  <div class="box cmp"><span class="tag">🔍 傻傻分不清：個別所有 vs. 共同所有</span>
+    <p>❶ <b>個別所有</b>「[[A's and B's]] ＋ 複數／不可數名詞」：表示兩人各自的關係或各自擁有某物。</p>
+    <p class="ex">Sam's and Dean's fathers are good friends. Sam 的父親和 Dean 的父親是好朋友。☞ Sam 和 Dean 不是兄弟，各自的父親是不同人</p>
+    <p>❷ <b>共同所有</b>「[[A and B's]] ＋ 名詞」：表示兩人共同的關係或共同擁有某物。</p>
+    <p class="ex">Sam and Dean's father is a great man. Sam 和 Dean 倆人的父親是個偉大的人。☞ Sam 和 Dean 是兄弟，擁有同一個父親</p>
+  </div>
+
+  <h3>② 無生命名詞：「B ＋ [[of]] ＋ A」＝「A 的 B」</h3>
+  <p>表示兩者是一體的，B 是 A 的一部分。</p>
+  <p class="ex">the walls of the house 這間房子的牆壁 ☞ 牆壁是房子的一部分</p>
+  <p class="ex">the back of the bus 這輛公車的後段 ☞ 後段部分是公車的一部分</p>
+
+  <div class="box gem"><span class="tag">💎 文法壓箱寶</span>
+    <p><mark>時間</mark>的所有格則常加 [['s]]。</p>
+    <p class="ex">today's weather 今天的天氣　　two months' food 兩個月的食物</p>
+  </div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：選擇</span>
+    <ul class="mc">
+      <li>1. ______ mother is Molly. She is very kind.
+        <div class="opts"><span>(A) Fred and George</span><span>(B) Fred's and George</span><span>(C) Fred and George's</span><span>(D) Fred's and George's</span></div>
+        答案：[[(C)　兩人共同的媽媽 → A and B's]]</li>
+      <li>2. Welcome to the party. It's ______ night, so all drinks are free for women.
+        <div class="opts"><span>(A) lady's</span><span>(B) ladies'</span><span>(C) lady</span><span>(D) ladies's</span></div>
+        答案：[[(B)　規則複數 ladies → 只加 ' ]]</li>
+    </ul>
+  </div>
+</div></section>
+
+<!-- ===================== 9 ===================== -->
+<section class="sec" id="s9" style="--c:var(--purple)" data-title="人稱代名詞">
+<div class="sec-h"><div class="num">9</div><h2>人稱代名詞＆be 動詞</h2></div>
+<div class="sec-b">
+  <h3>人稱代名詞：主格與所有格</h3>
+  <div class="tw"><table>
+    <tr><th>人稱</th><th>單數主格</th><th>單數所有格</th><th>複數主格</th><th>複數所有格</th></tr>
+    <tr><td class="rh">第一人稱</td><td>I</td><td>[[my]] 我的</td><td>[[we]]</td><td>[[our]] 我們的</td></tr>
+    <tr><td class="rh">第二人稱</td><td>you</td><td>[[your]] 你的</td><td>[[you]]</td><td>[[your]] 你們的</td></tr>
+    <tr><td class="rh" rowspan="3">第三人稱</td><td>he</td><td>[[his]] 他的</td><td rowspan="3">[[they]]</td><td rowspan="3">[[their]]<br>他／她／牠／它們的</td></tr>
+    <tr><td>she</td><td>[[her]] 她的</td></tr>
+    <tr><td>it</td><td>[[its]] 牠／它的</td></tr>
+  </table></div>
+  <p>★ 人稱代名詞當主詞時，要用<mark>主格</mark>；要表示「某人的」時，要用<mark>所有格</mark>，後加名詞。</p>
+  <p class="ex">I am a student. This is [[my]] schoolbag. 我是學生，這是我的書包。</p>
+
+  <h3>人稱代名詞與 be 動詞之搭配</h3>
+  <div class="tw"><table>
+    <tr><th>代名詞</th><th>be 動詞</th><th>肯定縮寫</th><th>否定縮寫 ①</th><th>否定縮寫 ②</th></tr>
+    <tr><td>I</td><td>[[am]]</td><td>I'm</td><td>I'm not</td><td><b class="x">無（不可寫成 I amn't）</b></td></tr>
+    <tr><td>we</td><td>[[are]]</td><td>we're</td><td>we're not</td><td>we aren't</td></tr>
+    <tr><td>you</td><td>[[are]]</td><td>you're</td><td>you're not</td><td>you aren't</td></tr>
+    <tr><td>he</td><td rowspan="3" class="c">[[is]]</td><td>he's</td><td>he's not</td><td>he isn't</td></tr>
+    <tr><td>she</td><td>she's</td><td>she's not</td><td>she isn't</td></tr>
+    <tr><td>it</td><td>it's</td><td>it's not</td><td>it isn't</td></tr>
+    <tr><td>they</td><td>[[are]]</td><td>they're</td><td>they're not</td><td>they aren't</td></tr>
+  </table></div>
+  <div class="box warn"><span class="tag">❤️ 易錯</span>
+    <p>I am not 只能縮寫成 [[I'm not]]，<span class="x">沒有 I amn't</span>！</p>
+  </div>
+</div></section>
+
+<!-- ===================== 10 ===================== -->
+<section class="sec" id="s10" style="--c:var(--red)" data-title="指示代名詞">
+<div class="sec-h"><div class="num">10</div><h2>指示代名詞 this / that / these / those</h2></div>
+<div class="sec-b">
+  <p><b>this</b> 指和說話者距離<mark>近</mark>的人事物，表示「[[這個]]」；<b>that</b> 指和說話者距離<mark>遠</mark>的人事物，表示「[[那個]]」。</p>
+  <p class="ex">This is my bike. That's your bike. 這是我的腳踏車。那是你的腳踏車。</p>
+  <div class="tw"><table>
+    <tr><th></th><th>單數</th><th>複數</th></tr>
+    <tr><td class="rh">近的</td><td>this（這）</td><td>[[these]]（這些）</td></tr>
+    <tr><td class="rh">遠的</td><td>that（那）</td><td>[[those]]（那些）</td></tr>
+    <tr><td class="rh">代名詞（簡答用）</td><td>[[it]]（它／牠）</td><td>[[they]]（他／它們）</td></tr>
+  </table></div>
+  <p>注意：1. 單／複數之發音　2. 近的用 this/these，遠的用 that/those　3. <mark>簡答須用代名詞 [[it / they]]</mark></p>
+
+  <div class="box key"><span class="tag">⭐ 口訣</span>
+    <p style="font-size:19px;font-weight:900;line-height:2">這叫 this　那叫 that<br>簡答 [[it]] 來幫忙<br>this 變成 [[these]]　that 變做 [[those]]<br>簡答就用 [[they]]</p>
+  </div>
+  <h3>口訣解說</h3>
+  <p>● this（這）、that（那）之代名詞共用 <b>it</b>，簡答時須使用代名詞 it，<span class="x">不可以用 this/that</span>。</p>
+  <p class="ex">Is this your pen? 這是你的筆嗎？　Yes, [[it is]]. 是的，它是。<br><span class="x">不可寫成 Yes, this is. (X)</span></p>
+  <p>● 複數 these/those 之代名詞共用 <b>they</b>，簡答時須使用代名詞 they，<span class="x">不可用 these/those</span>。</p>
+  <p class="ex">Are those your books? 這些是你的書嗎？　Yes, [[they are]]. 是的，他們是。<br><span class="x">不可以回答 Yes, those are. (X)</span></p>
+
+  <div class="box gem"><span class="tag">💎 補充定義</span>
+    <p>指示代名詞（demonstrative pronoun）指的是具有「直指」（deictic）功能的代名詞，在說話者與聽話者共知的情境中，明白指示出人、事、物之時間與空間的位置關係。</p>
+    <p>註：英文一共有 <mark>[[四]]個</mark>指示代名詞：this、that、these、those。this 和 that 為 [[單數]]，代替單數名詞；these 和 those 為 [[複數]]，代替複數名詞。</p>
+    <p class="ex">This is a good pen.（單數）這是一枝不錯的筆<br>These are good pens.（複數）這些筆不錯</p>
+  </div>
+
+  <h3>this / that 的用法</h3>
+  <p>this/that 代替<mark>指定的單數名詞</mark>，可於句首當<mark>主詞</mark>使用，後接 be 動詞 <b>[[is]]</b>。<b>this is [[沒有縮寫]]</b>，that is 則可縮寫成 <b>[[that's]]</b>。</p>
+  <p class="ex">This is my cousin, Mary. 這位是我的表妹瑪麗。<br>That is/That's a new cellphone. 那是支新手機。</p>
+
+  <h3>更多例句</h3>
+  <p class="ex">This is a book. 這是一本書 → These are books. 這些是書</p>
+  <p class="ex">That is a good watch. 那是一只好手錶 → Those are good [[watches]]. 那些是好手錶</p>
+  <p class="ex">This is a pen; that is a pencil. 這是一枝鋼筆；那是一枝鉛筆</p>
+  <div class="tw"><table>
+    <tr><th>問句</th><th>回答</th></tr>
+    <tr><td rowspan="4">Is this your car?<br><span class="zh">這是你的車嗎？</span></td><td>Yes, [[it is]].（肯定簡答）</td></tr>
+    <tr><td>No, [[it isn't]].（否定簡答）</td></tr>
+    <tr><td>Yes, it is my car.（肯定詳答）</td></tr>
+    <tr><td>No, it is not my car.（否定詳答）</td></tr>
+    <tr><td rowspan="4">Are those his classmates?<br><span class="zh">那些是他的同班同學嗎？</span></td><td>Yes, [[they are]].（肯定簡答）</td></tr>
+    <tr><td>No, [[they are not]].（否定簡答）</td></tr>
+    <tr><td>Yes, they are his classmates.（肯定詳答）</td></tr>
+    <tr><td>No, they are not his classmates.（否定詳答）</td></tr>
+  </table></div>
+
+  <div class="box tip"><span class="tag">📝 用法小秘訣</span>
+    <p>● 打電話時須用 <b>This is …</b> 和 <b>Is this …?</b> 來稱呼自己或詢問對方是誰。</p>
+    <p class="ex">Hi, [[this is]] Alice. 嗨，我是 Alice。☞ 電話中稱呼自己不會說 I am Alice.<br>[[Is this]] Sandy? 你是 Sandy 嗎？☞ 電話中詢問對方不會說 Are you Sandy?</p>
+    <p>● 介紹他人互相認識時須用 <b>This is …</b>。</p>
+    <p class="ex">Alex: Billy, [[this is]] Claire. Billy，這位是 Claire。☞ 介紹時不會說 She is Claire.<br>Billy: Hi, Claire. Nice to meet you. 嗨，Claire，很高興認識你。<br>Claire: Hello, Billy. Nice to meet you, too. 哈囉，Billy，我也很高興認識你。</p>
+    <p>● this/that/these/those 也是<mark>指示形容詞</mark>，後接表示人事物的名詞，表示「這個／那個／這些／那些…」。</p>
+    <p class="ex">I want to buy this camera. 我想買這台相機。<br>Those cookies are yummy. 那些餅乾很好吃。<br>This girl is my daughter. 這女孩是我女兒。<br>That man is my coach. 那位男士是我的教練。</p>
+  </div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：整句式翻譯</span>
+    <ol>
+      <li>這不是支手機。<br>[[This is not / isn't a cellphone.]]</li>
+      <li>那座花園很漂亮。<br>[[That garden is very beautiful.]]</li>
+      <li>那是一個玩具。<br>[[That is / That's a toy.]]</li>
+      <li>這位作家很有名。<br>[[This writer is very famous.]]</li>
+      <li>那位不是我媽。<br>[[That is not / That's not / That isn't my mom.]]</li>
+      <li>這個不是我的工作。<br>[[This is not / isn't my work / job.]]</li>
+    </ol>
+  </div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：看圖造句（Ben 介紹床上物品）</span>
+    <ol>
+      <li>🎁🎁🎁（近，禮物）　[[These are gifts.]]</li>
+      <li>🎩（遠，帽子）　[[That is / That's a hat.]]</li>
+      <li>🧸🧸🧸（遠，玩具熊）　[[Those are toy bears.]]</li>
+      <li>✏️ 鉛筆盒（近）　[[This is a pencil case. / These are pencils.]]</li>
+      <li>📷（遠，相機）　[[That is / That's a camera.]]</li>
+      <li>🖍️🖍️（近，麥克筆）　[[These are markers.]]</li>
+    </ol>
+  </div>
+</div></section>
+
+<!-- ===================== 11 ===================== -->
+<section class="sec" id="s11" style="--c:var(--cyan)" data-title="代名詞vs形容詞">
+<div class="sec-h"><div class="num">11</div><h2>指示代名詞 vs. 指示形容詞</h2></div>
+<div class="sec-b">
+  <div class="grid">
+    <div class="tile b"><h4>指示代名詞</h4>可當 [[主詞]]，也可當 [[受詞]]（後面不接名詞）<br><span class="zh">當主詞：This is a book.<br>當受詞：I like this.</span></div>
+    <div class="tile p"><h4>指示形容詞</h4>後面 [[需加名詞]]<br><span class="zh">This book is good.</span></div>
+  </div>
+  <div class="box key"><span class="tag">⭐ 必考規則：四選一，不可連用！</span>
+    <p>指示形容詞（this/that/these/those）、冠詞（a/an/the）、所有格（my/your/his…）<mark>[[任選一種]]</mark> ＋ 名詞</p>
+    <p><span class="o">this pen / a pen / my pen (O)</span><br><span class="x">this a pen / my this pen / the your pen (×)</span></p>
+  </div>
+  <p class="ex">This is a good book.（指示代名詞）這是一本好書<br>This book is good.（指示形容詞）這本書是好的<br><span class="x">不可寫成 This is a book is good. (×)</span></p>
+  <p>注意：this ＋ 名詞（book）→ this 為指示形容詞，<mark>與冠詞 a/an 不可連用</mark>。</p>
+
+  <h3>指示形容詞可用 the 代替</h3>
+  <p>指示形容詞<mark>不論遠近／單複數，皆可用 [[the]] 代替</mark>。</p>
+  <p class="ex">This boy is Tom's brother. → [[The]] boy is Tom's brother. 這個男孩是湯姆的兄弟<br>Those students are in the gym. → [[The]] students are in the gym. 這些學生在體育館</p>
+  <div class="box warn"><span class="tag">❤️ 易錯</span>
+    <p>This is a red pen.（這是一支紅筆）<span class="x">不可寫成 The is a red pen. (×)</span></p>
+    <p>This 在這裡是 <mark>[[指示代名詞]]</mark>，不可用 the 代替！</p>
+  </div>
+  <p class="ex">Is that a short pencil?（[[指示代名詞]]）那是一枝短的鉛筆嗎？<br>Is that pencil short?（[[指示形容詞]]）那枝鉛筆是短的嗎？</p>
+</div></section>
+
+<!-- ===================== 12 ===================== -->
+<section class="sec" id="s12" style="--c:var(--blue)" data-title="三大句型">
+<div class="sec-h"><div class="num">12</div><h2>句型：直述句・Yes/No 問答・Wh- 問答</h2></div>
+<div class="sec-b">
+  <h3>句型 1：直述句</h3>
+  <p>直述句包括「肯定句」及「否定句」。肯定句為「主詞 ＋ be 動詞…」表示「…是…」；否定句為「主詞 ＋ be 動詞 ＋ [[not]]…」表示「…不是…」。</p>
+  <div class="tw"><table>
+    <tr><th>主詞</th><th>be 動詞</th><th>(否定詞)</th><th>主詞補語（名詞）</th></tr>
+    <tr><td>I</td><td>[[am]]</td><td rowspan="5" class="c">(not)</td><td>a student.</td></tr>
+    <tr><td>You</td><td>[[are]]</td><td>our teacher.</td></tr>
+    <tr><td>He/She</td><td rowspan="2">[[is]]</td><td>Tom/Mary.</td></tr>
+    <tr><td>It</td><td>a dog.</td></tr>
+    <tr><td>We/You/They</td><td>[[are]]</td><td>brother and sister.</td></tr>
+  </table></div>
+
+  <h3>句型 2：Yes/No 疑問句及其答句</h3>
+  <p>Yes/No 問句表示「…是…嗎？」或「…不是…嗎？」。做法：<mark>將「主詞」和「be 動詞」[[順序交換]]，形成倒裝，並將句點改成問號</mark>。</p>
+  <div class="tw"><table>
+    <tr><th>問句</th><th>Yes 簡答</th><th>Yes 詳答</th><th>No 簡答</th><th>No 詳答</th></tr>
+    <tr><td>❶ Am/Aren't I a good boy?</td><td>Yes, [[you are]].</td><td>You're a good boy.</td><td>No, you're not. / you aren't.</td><td>You're a bad boy. / You're not a good boy.</td></tr>
+    <tr><td>❷ Are(n't) you a student?</td><td>Yes, [[I am]].</td><td>I'm a student.</td><td>No, [[I'm not]]. / I am not.</td><td>I'm a teacher. / I'm not a student.</td></tr>
+    <tr><td>❸ Is(n't) he/she our teacher?</td><td>Yes, [[he/she is]].</td><td>He's/She's our teacher.</td><td>No, he's/she's not. / he/she isn't.</td><td>He's/She's our new classmate. / He's/She's not our teacher.</td></tr>
+    <tr><td>❹ Is(n't) it a cat?</td><td>Yes, [[it is]].</td><td>It's a cat.</td><td>No, it's not. / it isn't.</td><td>It's a dog. / It's not a cat.</td></tr>
+    <tr><td>❺ Are(n't) we/you/they brother and sister?</td><td>Yes, [[you/we/they are]].</td><td>You're/We're/They're brother and sister.</td><td>No, you're/we're/they're not. / you/we/they aren't.</td><td>…husband and wife. / …not brother and sister.</td></tr>
+  </table></div>
+  <div class="box warn"><span class="tag">❤️ 注意人稱轉換</span>
+    <p>問 <b>I</b> → 答 <b>[[you]]</b>；問 <b>you</b>（單數）→ 答 <b>[[I]]</b>；問 we → 答 you；問 you（複數）→ 答 we。</p>
+  </div>
+
+  <h3>句型 3：Wh- 疑問句及其答句</h3>
+  <p>句首為 Wh- 疑問詞，常見的有 who（[[誰]]）、what（[[什麼]]）、when（[[何時]]）、where（[[何地]]）、which（[[哪一個]]）、whose（[[誰的]]）、how（[[如何]]）等，後接「<mark>be 動詞 ＋ 主詞</mark>」，be 動詞須視主詞而定。</p>
+  <div class="tw"><table>
+    <tr><th>Wh- 問句</th><th>Wh- 答句</th></tr>
+    <tr><td>❶ How are you?</td><td>I am [[fine. / okay.]]</td></tr>
+    <tr><td>❷ What is your name?</td><td>My name is Tom.</td></tr>
+    <tr><td>❷ What is your phone number?</td><td>My phone number is 02-2222-2222.</td></tr>
+    <tr><td>❸ Who are you?</td><td>I am Hank's father.</td></tr>
+    <tr><td>❹ How old am I?</td><td>You are [[three (years old)]].</td></tr>
+    <tr><td>❺ Where are you from?</td><td>I am [[from]] Taiwan.</td></tr>
+  </table></div>
+
+  <h3>代名詞 it/this/that、they/these/those 之 Yes/No 問答</h3>
+  <p>簡答時<mark>第三人稱單數物品須用人稱代名詞 [[it]] 代替；複數則用人稱代名詞 [[they]] 代替</mark>。</p>
+  <div class="tw"><table>
+    <tr><th></th><th>Yes/No 問句</th><th>簡答</th><th>詳答</th></tr>
+    <tr><td class="rh">單數</td><td>Is it/this/that a birthday party?</td><td>Yes, [[it is]].<br>No, [[it's not]].</td><td>It/This/That is a birthday party.<br>It/This/That is a costume party.</td></tr>
+    <tr><td class="rh">複數</td><td>Are they/these/those baseballs?</td><td>Yes, [[they are]].<br>No, [[they're not]].</td><td>They/These/Those are baseballs.<br>They/These/Those are softballs.</td></tr>
+  </table></div>
+
+  <h3>含 this/that 問「人」時的 Yes/No 問答</h3>
+  <p>直述句 This/That is (not) Jack. → 問句 <b>[[Is(n't)]]</b> this/that Jack?<br>回答時須用第三人稱單數代名詞 <mark>[[he/she]] 代替人，用 [[it]] 代替事物</mark>。</p>
+  <div class="tw"><table>
+    <tr><th>問句</th><th>肯定</th><th>否定</th></tr>
+    <tr><td>Is this/that Jack?</td><td>Yes, [[he is]]. He's Jack.</td><td>No, [[he's not]]. He's Hank.</td></tr>
+    <tr><td>Is this/that your sister?</td><td>Yes, [[she is]]. She's my sister.</td><td>No, [[she's not]]. She's my mother.</td></tr>
+    <tr><td>Is this/that a garden?</td><td>Yes, [[it is]]. It's a garden.</td><td>No, [[it's not]]. It's a park.</td></tr>
+  </table></div>
+  <div class="box warn"><span class="tag">❤️ 愛的小叮嚀</span>
+    <p>指示代名詞 this/that 用於詢問事物時，回答須用單數人稱代名詞 it 代替 this/that。</p>
+    <p>A: Is this/that a pen?　B: <span class="o">Yes, it is. / No, it isn't. (O)</span>　<span class="x">Yes, this/that is. / No, this/that isn't. (×)</span></p>
+  </div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：依提示詳答</span>
+    <ol>
+      <li>A: Is this a garden? (park)<br>B: [[No, it's not. It's a park.]]</li>
+      <li>A: Is that man your teacher? (coach)<br>B: [[No, he's not. He's my coach.]]</li>
+      <li>A: Is this your dog? (my dog)<br>B: [[Yes, it is. It's my dog.]]</li>
+      <li>A: Is that your sister? (cousin)<br>B: [[No, she's not. She's my cousin.]]</li>
+      <li>A: Is this your house? (Amy's house)<br>B: [[No, it's not. It's Amy's house.]]</li>
+      <li>A: Is this man Joe's uncle? (Joe's brother)<br>B: [[No, he's not. He's Joe's brother.]]</li>
+    </ol>
+  </div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：改寫成 Yes/No 問句並回答</span>
+    <p class="zh">例：This is a pencil.（詳答；a pen）→ Is this a pencil? No, it/this is a pen.</p>
+    <ol>
+      <li>Those are maple leaves.（簡答；Yes）<br>[[Are those maple leaves? Yes, they are.]]</li>
+      <li>That is a butterfly.（詳答；a bee）<br>[[Is that a butterfly? No, it/that is a bee.]]</li>
+      <li>These are dictionaries.（詳答；phone books）<br>[[Are these dictionaries? No, they/these are phone books.]]</li>
+      <li>This is a table game.（簡答；Yes）<br>[[Is this a table game? Yes, it is.]]</li>
+      <li>They are Tom's parents.（詳答；Sam's parents）<br>[[Are they Tom's parents? No, they are Sam's parents.]]</li>
+    </ol>
+  </div>
+
+  <h3>代名詞之 What／Who 問答</h3>
+  <p>What 問句須將疑問詞 What 放句首，再將主詞與 be 動詞的順序交換，並將句點改成問號。<mark>What 和 is 可縮寫成 [[What's]]</mark>。</p>
+  <div class="tw"><table>
+    <tr><th></th><th>What 問句</th><th>What 答句</th></tr>
+    <tr><td class="rh">單數</td><td>What [[is]] it / this / that?</td><td>It is an eraser.<br>This/It is a poster.<br>That/It is a picture.</td></tr>
+    <tr><td class="rh">複數</td><td>What [[are]] they / these / those?</td><td>They are ropes.<br>These/They are gifts.<br>Those/They are butterflies.</td></tr>
+  </table></div>
+  <p class="ex">直述句 This/That is a house. / my mom. → Wh- 問句 <b>What</b> is this/that?（問物）／<b>[[Who]]</b> is this/that?（問人）<br>→ 答句 It / This/That is a house.・She is my mom.</p>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：依劃線部分造原問句</span>
+    <ol>
+      <li>That's <u>my grandmother's garden</u>.<br>[[What is / What's that?]]</li>
+      <li>This is <u>my birthday party</u>.<br>[[What is / What's this/that?]]</li>
+      <li>That woman is <u>my teacher, Miss Lin</u>.<br>[[Who is / Who's that woman?]]</li>
+    </ol>
+    <p><b>依提示回答問題：</b></p>
+    <ol>
+      <li>A: Who is that woman? (my grandmother)<br>B: [[She's my grandmother.]]</li>
+      <li>A: What is that? (a puppy)<br>B: [[It's / That's a puppy.]]</li>
+      <li>A: Who is this? (my girlfriend)<br>B: [[This is / She's my girlfriend.]]</li>
+    </ol>
+  </div>
+</div></section>
+
+<!-- ===================== 13 ===================== -->
+<section class="sec" id="s13" style="--c:var(--orange)" data-title="形容詞">
+<div class="sec-h"><div class="num">13</div><h2>形容詞</h2></div>
+<div class="sec-b">
+  <p>形容詞是<mark>修飾名詞</mark>（人、事、物等）的單詞，說明名詞的數量、顏色、尺寸…等特性。</p>
+  <h3>形容詞當主詞補語</h3>
+  <div class="tw"><table>
+    <tr><th>用法</th><th>範例</th></tr>
+    <tr><td>❶ 形容詞可放在 [[be 動詞]]後當主詞補語，修飾主詞。</td><td>Harry is smart.</td></tr>
+    <tr><td>❷ Yes/No 問句將主詞和 be 動詞順序交換，句點改問號。回答時主詞要換成 [[人稱代名詞]]。</td><td>A: Is Sherry thin?<br>B: Yes, she is. She's thin.<br>　 No, she isn't. She's fat.</td></tr>
+    <tr><td>❸ 用 [[How]] 詢問人、事、物的狀況。回答要選擇合適的形容詞來說明。</td><td>A: How's your grandmother?<br>B: She's well. Thank you.</td></tr>
+    <tr><td>❹ 一個以上的形容詞當主詞補語：<br>A. 語意成正比：形容詞1 ＋ [[and]] ＋ 形容詞2／形容詞1, 形容詞2(,) ＋ and ＋ 形容詞3<br>B. 語意成對比：形容詞1 ＋ [[but]] ＋ 形容詞2</td><td>Henry is rich and handsome.<br>Jessica is tall, thin, and pretty.<br>Tom is smart but lazy.</td></tr>
+  </table></div>
+  <h3>前位修飾「形容詞 ＋ 名詞」</h3>
+  <div class="tw"><table>
+    <tr><th>用法</th><th>範例</th></tr>
+    <tr><td>❶ 形容詞放在名詞前修飾之，稱之為「[[前位修飾]]」。</td><td>My brother is a smart boy.</td></tr>
+    <tr><td>❷ Yes/No 問句：主詞和 be 動詞交換，句點改問號；回答時主詞換成人稱代名詞。</td><td>A: Is your husband a helpful person?<br>B: Yes, he is. He's very helpful.<br>　 No, he isn't. He's lazy.</td></tr>
+    <tr><td>❸ 形容詞超過一個時，按以下順序排列（不須以 and 連接）</td><td>two cute little white cats<br><span class="zh">兩隻可愛的小白貓</span></td></tr>
+  </table></div>
+  <div class="box key"><span class="tag">⭐ 形容詞排列順序</span>
+    <p style="font-weight:900">[[數量]] → [[品質、特質]] → [[尺寸、大小]] → [[新舊、年齡]] → [[形狀]] → [[顏色]]</p>
+    <p class="zh">two（數量）cute（特質）little（大小）white（顏色）cats</p>
+  </div>
+</div></section>
+
+<!-- ===================== 14 ===================== -->
+<section class="sec" id="s14" style="--c:var(--pink)" data-title="地方介系詞">
+<div class="sec-h"><div class="num">14</div><h2>地方介系詞（片語）</h2></div>
+<div class="sec-b">
+  <p>地方介系詞（片語）可能是一個單字，如 in、on 等，也可能是個片語，如 in front of、across from 等，<mark>後可接名詞（片語）或代名詞</mark>，以表示該名詞的地點或位置。</p>
+  <div class="tw"><table>
+    <tr><th>介系詞（片語）</th><th>中文</th><th>圖示</th><th>例句</th></tr>
+    <tr><td><b>in / inside</b></td><td>[[在…裡面]]</td><td class="c">📦🐱</td><td>The cat is in/inside the box.<br><span class="zh">※ inside 強調「在裡面」而非「在外面」，且為「封閉」的空間。</span></td></tr>
+    <tr><td><b>on</b></td><td>[[在…上面（有直接接觸）]]</td><td class="c">🐱<br>📦</td><td>The cat is on the box.</td></tr>
+    <tr><td><b>in front of</b></td><td>[[在…前面]]</td><td class="c">🏠🐶</td><td>The dog is in front of the doghouse.</td></tr>
+    <tr><td><b>behind</b></td><td>[[在…背後]]</td><td class="c">🐶🏠</td><td>The dog is behind the doghouse.</td></tr>
+    <tr><td><b>next to / beside / by</b></td><td>[[在…旁邊]]</td><td class="c">🏠🐶</td><td>The dog is next to/beside/by the doghouse.</td></tr>
+    <tr><td><b>near</b></td><td>[[在…附近]]</td><td class="c">🐕🏠🐕</td><td>Four dogs are near the doghouse.</td></tr>
+    <tr><td><b>above</b></td><td>[[在…上面（沒有直接接觸）]]</td><td class="c">🐦<br>🏠</td><td>The bird is above the doghouse.</td></tr>
+    <tr><td><b>below</b></td><td>[[在…下面（沒有直接接觸）]]</td><td class="c">☁️<br>🐦</td><td>The bird is below the clouds.</td></tr>
+    <tr><td><b>under</b></td><td>[[在…下面（指正下方）]]</td><td class="c">🪑🐶</td><td>The dog is under the table.</td></tr>
+    <tr><td><b>between (A and B)</b></td><td>[[在…（兩者）之間]]</td><td class="c">🎁🐱🎁</td><td>The cat is between the boxes.</td></tr>
+    <tr><td><b>across</b></td><td>[[在…的另一頭]]</td><td class="c">🛣️🏠</td><td>The house is across the street.</td></tr>
+    <tr><td><b>across from</b></td><td>[[在…對面]]</td><td class="c">🏠↔⛪</td><td>The church is across from my house.</td></tr>
+  </table></div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：引導式翻譯（一格限填一字）</span>
+    <ol>
+      <li>我的臥室在我爸媽和我哥的房間之間。<br>My bedroom is [[between]] my parents' [[and]] my brother's rooms.</li>
+      <li>小狗在沙發的後面。<br>The dog is [[behind]] the sofa.</li>
+      <li>我的鉛筆盒在書桌下面。<br>My pencil case is [[under]] the desk.</li>
+      <li>一個怪人站在我們的公車前面。<br>A strange man is standing [[in]] [[front]] [[of]] our bus.</li>
+      <li>我家在那間便利商店附近。<br>My house is [[near]] the convenience store.</li>
+      <li>我的床在我姊的床旁邊。<br>My bed is [[beside / by]] my sister's bed.</li>
+    </ol>
+  </div>
+
+  <div class="box cmp"><span class="tag">🔍 傻傻分不清</span>
+    <div class="tw"><table>
+      <tr><th>比較</th><th>說明</th><th>例句</th></tr>
+      <tr><td class="rh" rowspan="2">in / at ＋地點</td><td><b>in</b> 表示在建築物、城鎮、國家等某個 [[範圍裡]]。</td><td>May is in a store. ☞ 強調在建築物裡面<br>May is in Taiwan. ☞ 強調在某個大地區裡面</td></tr>
+      <tr><td><b>at</b> 表示「在…地點」，強調的是「[[點]]」的概念。</td><td>Turn right at the church. ☞ 強調在某個點右轉</td></tr>
+      <tr><td class="rh" rowspan="2">in / on ＋交通工具</td><td><b>in</b>：汽車、計程車等空間 [[較狹小且無法站立行走]] 的交通工具裡。</td><td>Paul is [[in]] a car/taxi.</td></tr>
+      <tr><td><b>on</b>：公車、火車、飛機、船艦等空間 [[較大且可以站立行走]] 的交通工具裡。</td><td>Paul is [[on]] a bus/train/plane/ship.</td></tr>
+      <tr><td class="rh" rowspan="2">at ＋名詞 vs.<br>at ＋ the ＋地點</td><td>at home 在家（表示在「自己」家）<br>at school 在校唸書・at church 在教堂作禮拜 → 強調 [[動作]]</td><td>Jack is not at home. He's at school.<br>My grandpa and grandma are at church.</td></tr>
+      <tr><td>at the school 在這所學校・at the church 在這座教堂 → 強調 [[位置]]</td><td>Your mother is at the school. She's talking to your brother's teacher.<br>Let's meet at the church. It's very large and beautiful.</td></tr>
+      <tr><td class="rh" rowspan="2">on ＋名詞 vs.<br>on ＋ the ＋名詞</td><td>on TV [[上電視]]・on the TV [[在那台電視機上面]]</td><td>Look! I'm on TV!<br>Your keys are on the TV.</td></tr>
+      <tr><td>on the radio 上廣播節目；在廣播中<br>on the phone 在講電話中</td><td>My favorite show is on the radio now!<br>Mom is on the phone.</td></tr>
+      <tr><td class="rh" rowspan="2">in front of vs.<br>in the front of</td><td><b>in front of</b>「在…前面」，指 [[不在某物體之中]]，而是物體之外的前面。</td><td>The teacher is in front of the whiteboard.</td></tr>
+      <tr><td><b>in the front of</b>「在…的前段」，指 [[在某物體之中]] 的前段位置，亦作 at the front of。</td><td>The old lady is in/at the front of the bus.</td></tr>
+    </table></div>
+  </div>
+
+  <div class="box gem"><span class="tag">💎 特殊介系詞片語</span>
+    <p><b>at</b> the desk 在桌前・<b>at</b> the door 在門前・<b>at</b> the window 在窗前・<b>at</b> the traffic light 在紅綠燈前<br>※ 以上介系詞 <mark>[[不能使用 in front of]]</mark></p>
+    <p class="ex">Alice is at the desk. / Who's at the door? / Vicky is at the window. / The taxi is waiting at the traffic light.</p>
+    <p><b>in</b> one's hand 在某人的手上・<b>in</b> the tree 在樹上（on the tree 指在樹的「[[頂端]]」）<br>※ 以上介系詞 <mark>[[不能使用 on]]</mark></p>
+    <p class="ex">A gold coin is in his hand. / Two birds are in the tree.</p>
+    <p><b>at the end of</b> 在…的盡頭・<b>in the end</b> 最後（意同於 [[finally]]）</p>
+    <p class="ex">A girl is standing at the end of the tunnel.<br>In the end, the frog changes into a handsome prince.</p>
+  </div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：引導式翻譯（一格不限填一字）</span>
+    <ol>
+      <li>一個銷售員在門口。　A salesman is [[at the door]].</li>
+      <li>Sunny 在學校上課。　Sunny is [[at school]].</li>
+      <li>我朋友莉莎上電視了！　My friend Lisa is [[on TV]]!</li>
+      <li>Tommy 很矮。他在教室的前段。　Tommy is very short. He's sitting [[in/at the front of]] the classroom.</li>
+      <li>Brian 的父母不在台北。　Brian's parents are not [[in Taipei]].</li>
+      <li>Alice 在一輛公車上。　Alice is [[on a bus]].</li>
+      <li>Eric 不在家。　Eric is not [[at home]].</li>
+      <li>我爸爸在車庫前面。　My father is [[in front of]] the garage.</li>
+      <li>我家在這條路的盡頭。　My home is [[at the end]] of the road.</li>
+      <li>你媽媽在公車站牌。　Your mother is [[at the bus stop]].</li>
+    </ol>
+  </div>
+</div></section>
+
+<!-- ===================== 15 ===================== -->
+<section class="sec" id="s15" style="--c:var(--green)" data-title="Where 問答">
+<div class="sec-h"><div class="num">15</div><h2>地方介系詞句型＆Where 問答</h2></div>
+<div class="sec-b">
+  <h3>地方介系詞片語之應用句型</h3>
+  <div class="tw"><table>
+    <tr><th>句型</th><th>疑問詞／be 動詞</th><th>主詞</th><th>地方介系詞片語</th></tr>
+    <tr><td class="rh">直述句</td><td>Your brother is</td><td>—</td><td>in his bedroom.</td></tr>
+    <tr><td class="rh" rowspan="2">Yes/No 問句</td><td>[[Is]]</td><td>your sister</td><td>in the bathroom?</td></tr>
+    <tr><td>[[Are]]</td><td>my birthday gifts / my glasses</td><td>on the table?</td></tr>
+    <tr><td class="rh">What/Who 問句</td><td colspan="2">[[Who / What]] is（疑問詞當主詞）</td><td>in the bathroom? / on the table?</td></tr>
+  </table></div>
+  <p>詢問某地有何人、事、物時用 <mark>[[who 或 what]]</mark>。</p>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：整句式翻譯</span>
+    <ol>
+      <li>貓在鋼琴下嗎？<br>[[Is the cat under the piano?]]</li>
+      <li>什麼在桌上？<br>[[What is on the table/desk?]]</li>
+      <li>爸和媽在家嗎？<br>[[Are Mom and Dad at home?]]</li>
+      <li>浴室在你的臥室隔壁嗎？<br>[[Is the bathroom beside/by/next to your bedroom?]]</li>
+      <li>誰在我房間？<br>[[Who is in my bedroom?]]</li>
+      <li>狗屋在你的房子前面嗎？<br>[[Is the doghouse in front of your house?]]</li>
+    </ol>
+  </div>
+
+  <h3>Where 問答</h3>
+  <p>詢問人、事物、地點在哪裡：<mark>[[Where]] ＋ be 動詞 ＋ 主詞？</mark>，回答時常用地方介系詞片語。</p>
+  <div class="tw"><table>
+    <tr><th>問句</th><th>答句</th></tr>
+    <tr><td>Where [[am]] I?</td><td>You are in my house.</td></tr>
+    <tr><td>Where [[is]] my cellphone?</td><td>It is on the desk.</td></tr>
+    <tr><td>Where [[are]] my cookies?</td><td>They are in the dining room.</td></tr>
+    <tr><td>Where is my watch?</td><td>[[It]] is in the dining room.</td></tr>
+    <tr><td>Where are the cupcakes?</td><td>[[They]] are in the kitchen.</td></tr>
+  </table></div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：依劃線部分造原問句</span>
+    <ol>
+      <li>The dining room is <u>between the living room and the kitchen</u>.<br>[[Where is the dining room?]]</li>
+      <li>My dogs are <u>in the park</u>.<br>[[Where are your dogs?]]</li>
+      <li>You are <u>in the hospital</u>.<br>[[Where am I?]]</li>
+      <li>My mother is <u>at the train station</u>.<br>[[Where is your mother?]]</li>
+      <li>Your bicycle is <u>between the two trees</u>.<br>[[Where is my bicycle?]]</li>
+      <li>The post office is <u>across from the supermarket</u>.<br>[[Where is the post office?]]</li>
+    </ol>
+  </div>
+  <div class="box warn"><span class="tag">❤️ 易錯</span>
+    <p>造原問句時人稱要轉換：my → [[your]]、your → [[my]]、You are → Where [[am I]]?</p>
+  </div>
+</div></section>
+
+<!-- ===================== 16 ===================== -->
+<section class="sec" id="s16" style="--c:var(--purple)" data-title="總整理">
+<div class="sec-h"><div class="num">16</div><h2>考前總整理速查表</h2></div>
+<div class="sec-b">
+  <h3>可數名詞之單複數用法</h3>
+  <div class="tw"><table>
+    <tr><th>用法</th><th></th><th>範例</th></tr>
+    <tr><td>不定冠詞 a(n)／量詞 one／指示形容詞 this/that</td><td class="rh">＋ [[單數名詞]]</td><td>a hat・one hat・this hat</td></tr>
+    <tr><td>無修飾詞／量詞 two/three…／指示形容詞 these/those</td><td class="rh">＋ [[複數名詞]]</td><td>hats・two hats・these hats</td></tr>
+    <tr><td>定冠詞 the／所有格</td><td class="rh">＋ [[單／複數名詞]]</td><td>the hat(s)・Peter's hat(s)</td></tr>
+  </table></div>
+  <h3>名詞之所有格</h3>
+  <div class="tw"><table>
+    <tr><th></th><th>所有格寫法</th><th>範例</th></tr>
+    <tr><td class="rh">有生命名詞</td><td>❶ 單數名詞：加 [['s]]<br>❷ 規則複數名詞：加 [[ ' ]]<br>❸ 不規則複數名詞：加 [['s]]</td><td>my brother's pet<br>girls' bags<br>children's books</td></tr>
+    <tr><td class="rh">無生命名詞</td><td>「B ＋ [[of]] ＋ A」表示「A 的 B」</td><td>the walls of the house</td></tr>
+  </table></div>
+  <h3>代名詞 it, this, that 和 they, these, those</h3>
+  <div class="tw"><table>
+    <tr><th></th><th>近</th><th>遠</th><th>遠近皆可</th></tr>
+    <tr><td class="rh">單數代名詞</td><td>this 這個</td><td>that 那個</td><td>[[it]] 它</td></tr>
+    <tr><td class="rh">複數代名詞</td><td>these 這些</td><td>those 那些</td><td>[[they]] 他們／它們</td></tr>
+  </table></div>
+  <div class="tw"><table>
+    <tr><th>句型</th><th>問句／直述</th><th>簡答</th><th>詳答</th></tr>
+    <tr><td class="rh">直述句</td><td>It/This/That [[is]] a marker.<br>They/These/Those [[are]] pens.</td><td>—</td><td>—</td></tr>
+    <tr><td class="rh">Yes/No</td><td>Is it/this/that a horse?</td><td>Yes, it is. / No, it's not.</td><td>It/This/That is a horse. / …a zebra.</td></tr>
+    <tr><td class="rh">Yes/No</td><td>Are they/these/those foxes?</td><td>Yes, they are. / No, they're not.</td><td>They/These/Those are foxes. / …dogs.</td></tr>
+    <tr><td class="rh">What</td><td>What is it/this/that?<br>What are they/these/those?</td><td colspan="2">It/This/That is a gift.<br>They/These/Those are roses.</td></tr>
+  </table></div>
+  <h3>地方介系詞一覽</h3>
+  <div class="grid">
+    <div class="tile p">in / inside 在…裡面<br>on 在…上面（有直接接觸）<br>in front of 在…前面<br>behind 在…背後<br>near 在…附近<br>next to / beside / by 在…旁邊</div>
+    <div class="tile b">above 在…上面（沒有直接接觸）<br>below 在…下面（沒有直接接觸）<br>under 在…下面（指正下方）<br>between (A and B) 在…（兩者）之間<br>across 在…的另一頭<br>across from 在…對面</div>
+  </div>
+</div></section>
+
+<!-- ===================== 17 ===================== -->
+<section class="sec" id="s17" style="--c:var(--red)" data-title="總測驗">
+<div class="sec-h"><div class="num">17</div><h2>🏆 隨堂總測驗（指示代名詞）</h2></div>
+<div class="sec-b">
+  <ul class="mc">
+    <li>1. This is a book; _______ is a notebook.
+      <div class="opts"><span>(A) this</span><span>(B) that</span><span>(C) these</span><span>(D) those</span></div>
+      答案：[[(B)　前句 this（這），後句配 that（那）]]</li>
+    <li>2. _______ are Mr. Wang's students.
+      <div class="opts"><span>(A) This</span><span>(B) That</span><span>(C) It</span><span>(D) Those</span></div>
+      答案：[[(D)　複數用 Those]]</li>
+    <li>3. Is that your school? Yes, _______ is.
+      <div class="opts"><span>(A) this</span><span>(B) that</span><span>(C) it</span><span>(D) he</span></div>
+      答案：[[(C)　簡答需用代名詞 it，不可用 this/that]]</li>
+    <li>4. _______ computer is good.
+      <div class="opts"><span>(A) This a</span><span>(B) My this</span><span>(C) This</span><span>(D) The my</span></div>
+      答案：[[(C)　this/my/the/a 不可連用，擇一使用即可]]</li>
+    <li>5. _______ watches are on sale.
+      <div class="opts"><span>(A) These</span><span>(B) They</span><span>(C) It</span><span>(D) That</span></div>
+      答案：[[(A)　複數 watches 需用 These（這些）來修飾]]</li>
+    <li>6. I don't like _______ sofa.（沙發）
+      <div class="opts"><span>(A) these</span><span>(B) those</span><span>(C) it</span><span>(D) the</span></div>
+      答案：[[(D)　sofa 單數，用 this/that 或用 the 修飾]]</li>
+    <li>7. Are those your friends? Yes, _______.
+      <div class="opts"><span>(A) We are</span><span>(B) Those are</span><span>(C) You are</span><span>(D) They are</span></div>
+      答案：[[(D)　簡答需用 those 之代名詞 they]]</li>
+    <li>8. These are dresses（洋裝）; _______ are skirts.（裙子）
+      <div class="opts"><span>(A) these</span><span>(B) those</span><span>(C) the</span><span>(D) they</span></div>
+      答案：[[(B)　前句 These（這些），後句配 those（那些）]]</li>
+  </ul>
+</div></section>
+
+<p class="foot">🌈 全部點開了嗎？考試加油！ 💪</p>
+</div>
+
+<button class="btn pk toTop" onclick="scrollTo({top:0})" aria-label="回到頂端">↑</button>
+
+<script>
+(function(){
+  // 把 [[答案]] 轉成可點擊的空格
+  var main=document.querySelector('.wrap');
+  var walker=document.createTreeWalker(main,NodeFilter.SHOW_TEXT,null);
+  var nodes=[],n;
+  while((n=walker.nextNode())) if(n.nodeValue.indexOf('[[')>-1) nodes.push(n);
+  nodes.forEach(function(t){
+    var parts=t.nodeValue.split(/\[\[(.+?)\]\]/g), frag=document.createDocumentFragment();
+    parts.forEach(function(p,i){
+      if(i%2===0){ if(p) frag.appendChild(document.createTextNode(p)); }
+      else{ var s=document.createElement('span'); s.className='bk'; s.tabIndex=0; s.setAttribute('role','button');
+        s.setAttribute('aria-label','點擊顯示答案'); s.textContent=p.trim(); frag.appendChild(s); }
+    });
+    t.parentNode.replaceChild(frag,t);
+  });
+
+  // 欄位多的表格在手機上維持可橫向捲動，兩三欄的直接換行
+  main.querySelectorAll('table').forEach(function(t){
+    var cols=0; [].forEach.call(t.rows[0].cells,function(c){cols+=c.colSpan;});
+    if(cols>=4) t.classList.add('wide');
+  });
+
+  var all=[].slice.call(main.querySelectorAll('.sec .bk'));
+  var colors=['#ff4fa3','#ff8a00','#ffd23f','#8ad100','#00b8f0','#8b5cf6'];
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function burst(el){
+    if(reduce) return;
+    var r=el.getBoundingClientRect(), cx=r.left+r.width/2, cy=r.top+r.height/2;
+    for(var i=0;i<10;i++){
+      var d=document.createElement('i'); d.className='spark';
+      var a=Math.random()*Math.PI*2, dist=30+Math.random()*30;
+      d.style.left=cx+'px'; d.style.top=cy+'px'; d.style.background=colors[i%colors.length];
+      d.style.setProperty('--dx',Math.cos(a)*dist+'px'); d.style.setProperty('--dy',Math.sin(a)*dist+'px');
+      document.body.appendChild(d); setTimeout(function(x){return function(){x.remove();};}(d),650);
+    }
+  }
+  function update(){
+    var on=all.filter(function(b){return b.classList.contains('on');}).length;
+    document.getElementById('cnt').textContent='已揭曉 '+on+' / '+all.length;
+    document.getElementById('barFill').style.width=(all.length?on/all.length*100:0)+'%';
+    document.querySelectorAll('.sec').forEach(function(sec){
+      var bs=sec.querySelectorAll('.bk'), o=sec.querySelectorAll('.bk.on').length, sc=sec.querySelector('.sc');
+      if(sc) sc.textContent=(o===bs.length&&bs.length?'🎉 ':'')+o+'/'+bs.length;
+    });
+  }
+  function toggle(b){ b.classList.toggle('on'); if(b.classList.contains('on')) burst(b); update(); }
+  all.forEach(function(b){
+    b.addEventListener('click',function(){toggle(b);});
+    b.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle(b);} });
+  });
+
+  // 每節工具 + 導覽
+  var nav=document.getElementById('nav');
+  document.querySelectorAll('.sec').forEach(function(sec,i){
+    var a=document.createElement('a'); a.href='#'+sec.id; a.textContent=(i+1)+'. '+sec.dataset.title; nav.appendChild(a);
+    var tools=document.createElement('div'); tools.className='sec-tools';
+    tools.innerHTML='<span class="sc"></span><button class="btn mini">全開</button><button class="btn mini">蓋回</button>';
+    var btns=tools.querySelectorAll('button');
+    btns[0].onclick=function(){sec.querySelectorAll('.bk').forEach(function(b){b.classList.add('on');});update();};
+    btns[1].onclick=function(){sec.querySelectorAll('.bk').forEach(function(b){b.classList.remove('on');});update();};
+    sec.querySelector('.sec-h').appendChild(tools);
+  });
+  document.getElementById('showAll').onclick=function(){all.forEach(function(b){b.classList.add('on');});update();};
+  document.getElementById('hideAll').onclick=function(){all.forEach(function(b){b.classList.remove('on');});update();};
+  update();
+})();
+</script>
+</body>
+</html>
