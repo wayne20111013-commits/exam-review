@@ -105,6 +105,26 @@ tbody tr:nth-child(even) td{background:#fffaf2}
 td.rh{font-weight:900;background:#fff3d6 !important}
 .c{text-align:center}
 
+
+/* ===== parts & toc ===== */
+.part{--c:var(--pink);margin:56px 0 -6px;padding:18px 22px;border:3px solid var(--line);border-radius:22px;
+  background:var(--c);color:#fff;box-shadow:6px 6px 0 var(--line);position:relative}
+.part-no{display:inline-block;background:#fff;color:var(--ink);border:2px solid var(--line);border-radius:999px;
+  font-weight:900;font-size:13px;letter-spacing:.08em;padding:0 12px}
+.part h2{font-size:clamp(26px,5vw,34px);font-weight:900;margin:6px 0 2px;text-shadow:2px 2px 0 var(--line)}
+.part p{margin:0;font-weight:700;text-shadow:1px 1px 0 rgba(0,0,0,.25)}
+.toc{margin:22px 0 10px;padding:18px 20px;border:3px solid var(--line);border-radius:22px;background:#fff;box-shadow:6px 6px 0 var(--yellow)}
+.toc>h2{font-size:22px;font-weight:900}
+.toc>p{margin:4px 0 12px}
+.toc-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.toc-part{border:2.5px solid var(--line);border-radius:16px;overflow:hidden;min-width:0}
+.toc-h{display:block;background:var(--c);color:#fff;text-decoration:none;padding:6px 12px;font-weight:900;text-shadow:1px 1px 0 rgba(0,0,0,.3)}
+.toc-part ol{list-style:none;margin:0;padding:6px 8px}
+.toc-part li{margin:0}
+.toc-part li a{display:flex;gap:8px;align-items:baseline;color:var(--ink);text-decoration:none;padding:3px 6px;border-radius:8px;font-size:15px;line-height:1.5}
+.toc-part li a:hover{background:#fff4c2}
+.toc-part li a span{flex:0 0 auto;min-width:22px;height:22px;border-radius:50%;background:var(--c);color:#fff;font-size:12px;font-weight:900;display:inline-grid;place-items:center}
+
 /* chips grid */
 .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:12px 0}
 .tile{border:2.5px solid var(--line);border-radius:16px;padding:10px 14px;background:#fff}
@@ -171,47 +191,23 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   </div>
 </header>
 
+<nav class="toc" id="toc" aria-label="目錄">
+<h2>📚 複習地圖</h2>
+<p class="zh">建議照順序讀：先學單字層級（名詞、代名詞），再組成句子，最後補上形容詞和介系詞。</p>
+<div class="toc-grid"><div class="toc-part" style="--c:var(--purple)"><a class="toc-h" href="#p1"><b>PART 1</b> 名詞篇</a><ol><li><a href="#s1"><span>1</span>名詞的種類</a></li><li><a href="#s2"><span>2</span>可數／不可數兩用名詞</a></li><li><a href="#s3"><span>3</span>不定冠詞 a(n) 之用法</a></li><li><a href="#s4"><span>4</span>可數名詞之單數用法</a></li><li><a href="#s5"><span>5</span>可數名詞之複數用法</a></li><li><a href="#s6"><span>6</span>可數名詞之複數變化</a></li><li><a href="#s7"><span>7</span>名詞之所有格</a></li></ol></div>
+<div class="toc-part" style="--c:var(--red)"><a class="toc-h" href="#p2"><b>PART 2</b> 代名詞篇</a><ol><li><a href="#s8"><span>8</span>人稱代名詞＆be 動詞</a></li><li><a href="#s9"><span>9</span>指示代名詞 this / that / these / those</a></li><li><a href="#s10"><span>10</span>指示代名詞 vs. 指示形容詞</a></li></ol></div>
+<div class="toc-part" style="--c:var(--blue)"><a class="toc-h" href="#p3"><b>PART 3</b> 句型篇</a><ol><li><a href="#s11"><span>11</span>句型：直述句・Yes/No 問答・Wh- 問答</a></li><li><a href="#s12"><span>12</span>what 問人名與電話號碼・數字讀法</a></li></ol></div>
+<div class="toc-part" style="--c:var(--orange)"><a class="toc-h" href="#p4"><b>PART 4</b> 形容詞篇</a><ol><li><a href="#s13"><span>13</span>形容詞</a></li></ol></div>
+<div class="toc-part" style="--c:var(--pink)"><a class="toc-h" href="#p5"><b>PART 5</b> 介系詞篇</a><ol><li><a href="#s14"><span>14</span>地方介系詞（片語）</a></li><li><a href="#s15"><span>15</span>地方介系詞句型＆Where 問答</a></li></ol></div>
+<div class="toc-part" style="--c:var(--green)"><a class="toc-h" href="#p6"><b>PART 6</b> 考前總複習</a><ol><li><a href="#s16"><span>16</span>考前總整理速查表</a></li><li><a href="#s17"><span>17</span>🏆 隨堂總測驗（指示代名詞）</a></li></ol></div></div>
+</nav>
+
+<!-- ===================== PART 1 ===================== -->
+<div class="part" id="p1" style="--c:var(--purple)"><span class="part-no">PART 1</span><h2>名詞篇</h2><p>名詞怎麼分類、什麼時候加 a / an、單複數怎麼變、所有格怎麼寫</p></div>
+
 <!-- ===================== 1 ===================== -->
-<section class="sec" id="s1" style="--c:var(--cyan)" data-title="數字讀法">
-<div class="sec-h"><div class="num">1</div><h2>what 問人名與電話號碼・數字讀法</h2></div>
-<div class="sec-b">
-  <div class="tw"><table>
-    <tr><th>問句</th><th>答句</th></tr>
-    <tr><td>What is your name?</td><td>My name is [[Jane]].</td></tr>
-    <tr><td>What is your phone number?</td><td>[[It's]] 0921-123-456.</td></tr>
-  </table></div>
-
-  <h3>一位數 0～9</h3>
-  <div class="tw"><table>
-    <tr><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr>
-    <tr><td>[[zero / oh]]</td><td>one</td><td>two</td><td>three</td><td>four</td><td>five</td><td>six</td><td>seven</td><td>eight</td><td>nine</td></tr>
-  </table></div>
-  <p>讀電話號碼時，數字須<mark>一個一個讀出</mark>，若有連字號（-）要<mark>稍停頓</mark>。</p>
-  <p class="ex">02-2345-6789 → zero/oh two, two three four five, six seven eight nine</p>
-  <div class="box tip"><span class="tag">📝 用法小秘訣</span>
-    <p>電話號碼中有<mark>兩個 0</mark> 時，常唸成 [[zero zero]] 或 [[double zero]]。</p>
-    <p class="ex">2345-6700 → two three four five, six seven zero/double zero</p>
-  </div>
-
-  <h3>二位數</h3>
-  <p>① 10～19 為固定用法，其中 <mark>13～19 字尾都是 [[teen]]</mark>。</p>
-  <div class="tw"><table>
-    <tr><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th></tr>
-    <tr><td>ten</td><td>[[eleven]]</td><td>[[twelve]]</td><td>[[thirteen]]</td><td>fourteen</td><td>[[fifteen]]</td><td>sixteen</td><td>seventeen</td><td>[[eighteen]]</td><td>nineteen</td></tr>
-  </table></div>
-  <p>② 20, 30, 40…90 為固定用法，<mark>字尾都是 [[ty]]</mark>。</p>
-  <div class="tw"><table>
-    <tr><th>20</th><th>30</th><th>40</th><th>50</th><th>60</th><th>70</th><th>80</th><th>90</th></tr>
-    <tr><td>[[twenty]]</td><td>[[thirty]]</td><td>[[forty]]</td><td>[[fifty]]</td><td>sixty</td><td>seventy</td><td>[[eighty]]</td><td>ninety</td></tr>
-  </table></div>
-  <div class="box warn"><span class="tag">❤️ 愛的小叮嚀・易錯</span>
-    <p>14 為 fourteen，但 40 為 <b>forty</b>，<mark>沒有 [[u]]</mark>，容易拼錯，請注意拼法！</p>
-  </div>
-</div></section>
-
-<!-- ===================== 2 ===================== -->
-<section class="sec" id="s2" style="--c:var(--purple)" data-title="名詞分類">
-<div class="sec-h"><div class="num">2</div><h2>名詞的種類</h2></div>
+<section class="sec" id="s1" style="--c:var(--purple)" data-title="名詞分類">
+<div class="sec-h"><div class="num">1</div><h2>名詞的種類</h2></div>
 <div class="sec-b">
   <p>名詞代表的就是人、事、物、地方…等名稱。中文的名詞沒有單複數變化，但<mark>英文名詞必須留意單數與複數、可數與不可數</mark>的不同。</p>
   <p>名詞依是否可計算數目來分類，可分成 <b class="em">[[可數名詞]]</b>（可計算數目）及 <b class="em">[[不可數名詞]]</b>（無法計算數目）。</p>
@@ -233,6 +229,51 @@ td.rh{font-weight:900;background:#fff3d6 !important}
       <div>4. magic [[U]]</div><div>5. milk [[U]]</div><div>6. Taiwan [[U]]</div>
       <div>7. polar bear [[C]]</div><div>8. mask [[C]]</div><div>9. bread [[U]]</div>
     </div>
+  </div>
+</div></section>
+
+<!-- ===================== 2 ===================== -->
+<section class="sec" id="s2" style="--c:var(--lime)" data-title="可數/不可數">
+<div class="sec-h"><div class="num">2</div><h2>可數／不可數兩用名詞</h2></div>
+<div class="sec-b">
+  <div class="box prac"><span class="tag">✏️ 非試不可：寫出複數形</span>
+    <p class="zh">例：year → years</p>
+    <ol>
+      <li>box → [[boxes]]</li>
+      <li>wife → [[wives]]</li>
+      <li>toy → [[toys]]</li>
+      <li>gift → [[gifts]]</li>
+      <li>twin → [[twins]]</li>
+      <li>camera → [[cameras]]</li>
+      <li>watch → [[watches]]</li>
+      <li>butterfly → [[butterflies]]</li>
+    </ol>
+  </div>
+
+  <div class="box gem"><span class="tag">💎 文法壓箱寶：可數／不可數兩用名詞</span>
+    <div class="tw"><table>
+      <tr><th></th><th>cake</th><th>chicken</th><th>exercise</th><th>fish</th><th>glass</th><th>paper</th><th>room</th><th>time</th></tr>
+      <tr><td class="rh">可數</td><td>[[整個蛋糕]]</td><td>[[雞]]</td><td>體操；練習題</td><td>魚；魚類</td><td>[[玻璃杯]]</td><td>報紙；報告</td><td>[[房間]]</td><td>[[次數]]</td></tr>
+      <tr><td class="rh">不可數</td><td>[[部分蛋糕]]</td><td>[[雞肉]]</td><td>鍛鍊；運動</td><td>魚肉</td><td>[[玻璃]]</td><td>[[紙張]]</td><td>[[空間]]</td><td>[[時間]]</td></tr>
+    </table></div>
+    <p class="ex">I want to eat some cake. 我想要吃一些蛋糕。☞ 指[[一部分蛋糕]]</p>
+    <p class="ex">This is a birthday cake. 這是個生日蛋糕。☞ 指完整的一個蛋糕</p>
+    <p class="ex">I like chicken. 我喜歡雞肉。☞ 指喜歡吃[[雞肉]]，而非「雞」這個動物</p>
+    <p class="ex">My grandpa and grandma have some chickens on their farm. 我祖父母的農場有養一些雞。☞ 指有一些雞這種動物</p>
+    <p class="ex">I want to eat fish. 我想要吃魚。☞ 指想吃魚肉</p>
+    <p class="ex">I have two fish in the fishbowl. 我的魚缸裡有兩條魚。☞ 指數量是兩條</p>
+    <p>※ fish 當「魚」時，數量超過一條，複數形通常仍用 <mark>[[fish]]</mark>（單複數同形）。</p>
+  </div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：底線字詞可數 C／不可數 U</span>
+    <ol>
+      <li>I'd like to eat some <u>fish</u>.　[[U]]</li>
+      <li>There are six <u>glasses</u> on the table.　[[C]]</li>
+      <li>Do it one more <u>time</u>!　[[C]]</li>
+      <li>We need to get more <u>exercise</u>.　[[U]]</li>
+      <li>We need some pens and <u>paper</u>.　[[U]]</li>
+      <li>There is a <u>room</u> here.　[[C]]</li>
+    </ol>
   </div>
 </div></section>
 
@@ -401,53 +442,8 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 </div></section>
 
 <!-- ===================== 7 ===================== -->
-<section class="sec" id="s7" style="--c:var(--lime)" data-title="可數/不可數">
-<div class="sec-h"><div class="num">7</div><h2>可數／不可數兩用名詞</h2></div>
-<div class="sec-b">
-  <div class="box prac"><span class="tag">✏️ 非試不可：寫出複數形</span>
-    <p class="zh">例：year → years</p>
-    <ol>
-      <li>box → [[boxes]]</li>
-      <li>wife → [[wives]]</li>
-      <li>toy → [[toys]]</li>
-      <li>gift → [[gifts]]</li>
-      <li>twin → [[twins]]</li>
-      <li>camera → [[cameras]]</li>
-      <li>watch → [[watches]]</li>
-      <li>butterfly → [[butterflies]]</li>
-    </ol>
-  </div>
-
-  <div class="box gem"><span class="tag">💎 文法壓箱寶：可數／不可數兩用名詞</span>
-    <div class="tw"><table>
-      <tr><th></th><th>cake</th><th>chicken</th><th>exercise</th><th>fish</th><th>glass</th><th>paper</th><th>room</th><th>time</th></tr>
-      <tr><td class="rh">可數</td><td>[[整個蛋糕]]</td><td>[[雞]]</td><td>體操；練習題</td><td>魚；魚類</td><td>[[玻璃杯]]</td><td>報紙；報告</td><td>[[房間]]</td><td>[[次數]]</td></tr>
-      <tr><td class="rh">不可數</td><td>[[部分蛋糕]]</td><td>[[雞肉]]</td><td>鍛鍊；運動</td><td>魚肉</td><td>[[玻璃]]</td><td>[[紙張]]</td><td>[[空間]]</td><td>[[時間]]</td></tr>
-    </table></div>
-    <p class="ex">I want to eat some cake. 我想要吃一些蛋糕。☞ 指[[一部分蛋糕]]</p>
-    <p class="ex">This is a birthday cake. 這是個生日蛋糕。☞ 指完整的一個蛋糕</p>
-    <p class="ex">I like chicken. 我喜歡雞肉。☞ 指喜歡吃[[雞肉]]，而非「雞」這個動物</p>
-    <p class="ex">My grandpa and grandma have some chickens on their farm. 我祖父母的農場有養一些雞。☞ 指有一些雞這種動物</p>
-    <p class="ex">I want to eat fish. 我想要吃魚。☞ 指想吃魚肉</p>
-    <p class="ex">I have two fish in the fishbowl. 我的魚缸裡有兩條魚。☞ 指數量是兩條</p>
-    <p>※ fish 當「魚」時，數量超過一條，複數形通常仍用 <mark>[[fish]]</mark>（單複數同形）。</p>
-  </div>
-
-  <div class="box prac"><span class="tag">✏️ 非試不可：底線字詞可數 C／不可數 U</span>
-    <ol>
-      <li>I'd like to eat some <u>fish</u>.　[[U]]</li>
-      <li>There are six <u>glasses</u> on the table.　[[C]]</li>
-      <li>Do it one more <u>time</u>!　[[C]]</li>
-      <li>We need to get more <u>exercise</u>.　[[U]]</li>
-      <li>We need some pens and <u>paper</u>.　[[U]]</li>
-      <li>There is a <u>room</u> here.　[[C]]</li>
-    </ol>
-  </div>
-</div></section>
-
-<!-- ===================== 8 ===================== -->
-<section class="sec" id="s8" style="--c:var(--orange)" data-title="所有格">
-<div class="sec-h"><div class="num">8</div><h2>名詞之所有格</h2></div>
+<section class="sec" id="s7" style="--c:var(--orange)" data-title="所有格">
+<div class="sec-h"><div class="num">7</div><h2>名詞之所有格</h2></div>
 <div class="sec-b">
   <p>名詞可分成<mark>有生命</mark>與<mark>無生命</mark>兩種，各有其所有格的寫法。</p>
   <h3>① 有生命名詞：「名詞 ＋ 's」表示某人或動物所擁有</h3>
@@ -489,9 +485,12 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   </div>
 </div></section>
 
-<!-- ===================== 9 ===================== -->
-<section class="sec" id="s9" style="--c:var(--purple)" data-title="人稱代名詞">
-<div class="sec-h"><div class="num">9</div><h2>人稱代名詞＆be 動詞</h2></div>
+<!-- ===================== PART 2 ===================== -->
+<div class="part" id="p2" style="--c:var(--red)"><span class="part-no">PART 2</span><h2>代名詞篇</h2><p>I / my 等人稱代名詞與 be 動詞，this / that / these / those 的用法，以及簡答要換成 it / they</p></div>
+
+<!-- ===================== 8 ===================== -->
+<section class="sec" id="s8" style="--c:var(--purple)" data-title="人稱代名詞">
+<div class="sec-h"><div class="num">8</div><h2>人稱代名詞＆be 動詞</h2></div>
 <div class="sec-b">
   <h3>人稱代名詞：主格與所有格</h3>
   <div class="tw"><table>
@@ -521,9 +520,9 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   </div>
 </div></section>
 
-<!-- ===================== 10 ===================== -->
-<section class="sec" id="s10" style="--c:var(--red)" data-title="指示代名詞">
-<div class="sec-h"><div class="num">10</div><h2>指示代名詞 this / that / these / those</h2></div>
+<!-- ===================== 9 ===================== -->
+<section class="sec" id="s9" style="--c:var(--red)" data-title="指示代名詞">
+<div class="sec-h"><div class="num">9</div><h2>指示代名詞 this / that / these / those</h2></div>
 <div class="sec-b">
   <p><b>this</b> 指和說話者距離<mark>近</mark>的人事物，表示「[[這個]]」；<b>that</b> 指和說話者距離<mark>遠</mark>的人事物，表示「[[那個]]」。</p>
   <p class="ex">This is my bike. That's your bike. 這是我的腳踏車。那是你的腳踏車。</p>
@@ -599,9 +598,9 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   </div>
 </div></section>
 
-<!-- ===================== 11 ===================== -->
-<section class="sec" id="s11" style="--c:var(--cyan)" data-title="代名詞vs形容詞">
-<div class="sec-h"><div class="num">11</div><h2>指示代名詞 vs. 指示形容詞</h2></div>
+<!-- ===================== 10 ===================== -->
+<section class="sec" id="s10" style="--c:var(--cyan)" data-title="代名詞vs形容詞">
+<div class="sec-h"><div class="num">10</div><h2>指示代名詞 vs. 指示形容詞</h2></div>
 <div class="sec-b">
   <div class="grid">
     <div class="tile b"><h4>指示代名詞</h4>可當 [[主詞]]，也可當 [[受詞]]（後面不接名詞）<br><span class="zh">當主詞：This is a book.<br>當受詞：I like this.</span></div>
@@ -624,9 +623,12 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   <p class="ex">Is that a short pencil?（[[指示代名詞]]）那是一枝短的鉛筆嗎？<br>Is that pencil short?（[[指示形容詞]]）那枝鉛筆是短的嗎？</p>
 </div></section>
 
-<!-- ===================== 12 ===================== -->
-<section class="sec" id="s12" style="--c:var(--blue)" data-title="三大句型">
-<div class="sec-h"><div class="num">12</div><h2>句型：直述句・Yes/No 問答・Wh- 問答</h2></div>
+<!-- ===================== PART 3 ===================== -->
+<div class="part" id="p3" style="--c:var(--blue)"><span class="part-no">PART 3</span><h2>句型篇</h2><p>把學會的名詞和代名詞組成句子：直述句、Yes/No 問句、Wh- 問句，以及問名字、電話號碼</p></div>
+
+<!-- ===================== 11 ===================== -->
+<section class="sec" id="s11" style="--c:var(--blue)" data-title="三大句型">
+<div class="sec-h"><div class="num">11</div><h2>句型：直述句・Yes/No 問答・Wh- 問答</h2></div>
 <div class="sec-b">
   <h3>句型 1：直述句</h3>
   <p>直述句包括「肯定句」及「否定句」。肯定句為「主詞 ＋ be 動詞…」表示「…是…」；否定句為「主詞 ＋ be 動詞 ＋ [[not]]…」表示「…不是…」。</p>
@@ -732,6 +734,47 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   </div>
 </div></section>
 
+<!-- ===================== 12 ===================== -->
+<section class="sec" id="s12" style="--c:var(--cyan)" data-title="數字讀法">
+<div class="sec-h"><div class="num">12</div><h2>what 問人名與電話號碼・數字讀法</h2></div>
+<div class="sec-b">
+  <div class="tw"><table>
+    <tr><th>問句</th><th>答句</th></tr>
+    <tr><td>What is your name?</td><td>My name is [[Jane]].</td></tr>
+    <tr><td>What is your phone number?</td><td>[[It's]] 0921-123-456.</td></tr>
+  </table></div>
+
+  <h3>一位數 0～9</h3>
+  <div class="tw"><table>
+    <tr><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr>
+    <tr><td>[[zero / oh]]</td><td>one</td><td>two</td><td>three</td><td>four</td><td>five</td><td>six</td><td>seven</td><td>eight</td><td>nine</td></tr>
+  </table></div>
+  <p>讀電話號碼時，數字須<mark>一個一個讀出</mark>，若有連字號（-）要<mark>稍停頓</mark>。</p>
+  <p class="ex">02-2345-6789 → zero/oh two, two three four five, six seven eight nine</p>
+  <div class="box tip"><span class="tag">📝 用法小秘訣</span>
+    <p>電話號碼中有<mark>兩個 0</mark> 時，常唸成 [[zero zero]] 或 [[double zero]]。</p>
+    <p class="ex">2345-6700 → two three four five, six seven zero/double zero</p>
+  </div>
+
+  <h3>二位數</h3>
+  <p>① 10～19 為固定用法，其中 <mark>13～19 字尾都是 [[teen]]</mark>。</p>
+  <div class="tw"><table>
+    <tr><th>10</th><th>11</th><th>12</th><th>13</th><th>14</th><th>15</th><th>16</th><th>17</th><th>18</th><th>19</th></tr>
+    <tr><td>ten</td><td>[[eleven]]</td><td>[[twelve]]</td><td>[[thirteen]]</td><td>fourteen</td><td>[[fifteen]]</td><td>sixteen</td><td>seventeen</td><td>[[eighteen]]</td><td>nineteen</td></tr>
+  </table></div>
+  <p>② 20, 30, 40…90 為固定用法，<mark>字尾都是 [[ty]]</mark>。</p>
+  <div class="tw"><table>
+    <tr><th>20</th><th>30</th><th>40</th><th>50</th><th>60</th><th>70</th><th>80</th><th>90</th></tr>
+    <tr><td>[[twenty]]</td><td>[[thirty]]</td><td>[[forty]]</td><td>[[fifty]]</td><td>sixty</td><td>seventy</td><td>[[eighty]]</td><td>ninety</td></tr>
+  </table></div>
+  <div class="box warn"><span class="tag">❤️ 愛的小叮嚀・易錯</span>
+    <p>14 為 fourteen，但 40 為 <b>forty</b>，<mark>沒有 [[u]]</mark>，容易拼錯，請注意拼法！</p>
+  </div>
+</div></section>
+
+<!-- ===================== PART 4 ===================== -->
+<div class="part" id="p4" style="--c:var(--orange)"><span class="part-no">PART 4</span><h2>形容詞篇</h2><p>形容詞放在哪裡，以及兩個以上的形容詞怎麼排</p></div>
+
 <!-- ===================== 13 ===================== -->
 <section class="sec" id="s13" style="--c:var(--orange)" data-title="形容詞">
 <div class="sec-h"><div class="num">13</div><h2>形容詞</h2></div>
@@ -757,6 +800,9 @@ td.rh{font-weight:900;background:#fff3d6 !important}
     <p class="zh">two（數量）cute（特質）little（大小）white（顏色）cats</p>
   </div>
 </div></section>
+
+<!-- ===================== PART 5 ===================== -->
+<div class="part" id="p5" style="--c:var(--pink)"><span class="part-no">PART 5</span><h2>介系詞篇</h2><p>東西在哪裡？地方介系詞和 Where 問答</p></div>
 
 <!-- ===================== 14 ===================== -->
 <section class="sec" id="s14" style="--c:var(--pink)" data-title="地方介系詞">
@@ -881,6 +927,9 @@ td.rh{font-weight:900;background:#fff3d6 !important}
     <p>造原問句時人稱要轉換：my → [[your]]、your → [[my]]、You are → Where [[am I]]?</p>
   </div>
 </div></section>
+
+<!-- ===================== PART 6 ===================== -->
+<div class="part" id="p6" style="--c:var(--green)"><span class="part-no">PART 6</span><h2>考前總複習</h2><p>一張表看完全部重點，最後用總測驗檢查自己</p></div>
 
 <!-- ===================== 16 ===================== -->
 <section class="sec" id="s16" style="--c:var(--purple)" data-title="總整理">
@@ -1011,8 +1060,13 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 
   // 每節工具 + 導覽
   var nav=document.getElementById('nav');
-  document.querySelectorAll('.sec').forEach(function(sec,i){
-    var a=document.createElement('a'); a.href='#'+sec.id; a.textContent=(i+1)+'. '+sec.dataset.title; nav.appendChild(a);
+  var tocA=document.createElement('a'); tocA.href='#toc'; tocA.textContent='📚 目錄'; nav.appendChild(tocA);
+  document.querySelectorAll('.part').forEach(function(pt,i){
+    var a=document.createElement('a'); a.href='#'+pt.id; a.textContent=(i+1)+'. '+pt.querySelector('h2').textContent;
+    a.style.background='var(--c)'; a.style.setProperty('--c',pt.style.getPropertyValue('--c')); a.style.color='#fff';
+    nav.appendChild(a);
+  });
+  document.querySelectorAll('.sec').forEach(function(sec){
     var tools=document.createElement('div'); tools.className='sec-tools';
     tools.innerHTML='<span class="sc"></span><button class="btn mini">全開</button><button class="btn mini">蓋回</button>';
     var btns=tools.querySelectorAll('button');
