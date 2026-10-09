@@ -143,6 +143,15 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 @keyframes fly{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
 @media (prefers-reduced-motion:reduce){.bk.on{animation:none}.spark{display:none}html{scroll-behavior:auto}}
 
+/* 中文翻譯開關 */
+.trb{font:inherit;font-size:12px;font-weight:900;line-height:24px;width:24px;height:24px;border-radius:7px;border:2px solid var(--line);
+  background:var(--cyan);color:#fff;cursor:pointer;vertical-align:middle;margin-left:4px;padding:0;display:inline-block;text-align:center}
+.trb:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.trb[aria-expanded="true"]{background:var(--ink)}
+.trt{color:var(--ink2);font-size:15px;margin-left:6px;background:#e9fbff;border-radius:8px;padding:1px 8px}
+.zh{font-size:15px}
+#zhAll[aria-pressed="true"]{background:var(--cyan);color:#fff}
+
 /* MC */
 .mc{list-style:none;padding:0;margin:8px 0}
 .mc>li{border:2px solid var(--line);border-radius:14px;padding:10px 14px;margin:10px 0;background:#fff}
@@ -159,7 +168,8 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   table{font-size:15px}
   .brand{font-size:15px}
   .row1{flex-wrap:nowrap;gap:6px}
-  .row1 .btn{font-size:12px;padding:3px 9px}
+  .row1 .btn{font-size:12px;padding:3px 8px;white-space:nowrap}
+  .brand{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .top-in{padding:8px 16px 6px}
   .prog{margin-top:6px}
   .nav{padding-top:6px}
@@ -171,6 +181,7 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 <div class="top"><div class="top-in">
   <div class="row1">
     <div class="brand"><span class="dot"></span>七上英文段考複習</div>
+    <button class="btn" id="zhAll" aria-pressed="false">🀄 中文</button>
     <button class="btn yl" id="hideAll">🙈 全部蓋回</button>
     <button class="btn pk" id="showAll">👀 全部揭曉</button>
   </div>
@@ -188,6 +199,7 @@ td.rh{font-weight:900;background:#fff3d6 !important}
     <span><mark>螢光筆</mark> = 必考重點</span>
     <span>✏️ 綠框 = 非試不可練習</span>
     <span>❤️ 紅框 = 易錯</span>
+    <span><span class="trb" aria-hidden="true">中</span> = 點開看中文翻譯</span>
   </div>
 </header>
 
@@ -225,9 +237,9 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   <div class="box prac"><span class="tag">✏️ 非試不可</span>
     <p>判斷下列字詞為可數（C）或不可數（U）：</p>
     <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:4px 12px">
-      <div>1. camera [[C]]</div><div>2. music [[U]]</div><div>3. parent [[C]]</div>
-      <div>4. magic [[U]]</div><div>5. milk [[U]]</div><div>6. Taiwan [[U]]</div>
-      <div>7. polar bear [[C]]</div><div>8. mask [[C]]</div><div>9. bread [[U]]</div>
+      <div>1. camera <span class="zh">相機</span> [[C]]</div><div>2. music <span class="zh">音樂</span> [[U]]</div><div>3. parent <span class="zh">父／母親</span> [[C]]</div>
+      <div>4. magic <span class="zh">魔法</span> [[U]]</div><div>5. milk <span class="zh">牛奶</span> [[U]]</div><div>6. Taiwan <span class="zh">台灣</span> [[U]]</div>
+      <div>7. polar bear <span class="zh">北極熊</span> [[C]]</div><div>8. mask <span class="zh">面具</span> [[C]]</div><div>9. bread <span class="zh">麵包</span> [[U]]</div>
     </div>
   </div>
 </div></section>
@@ -236,20 +248,6 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 <section class="sec" id="s2" style="--c:var(--lime)" data-title="可數/不可數">
 <div class="sec-h"><div class="num">2</div><h2>可數／不可數兩用名詞</h2></div>
 <div class="sec-b">
-  <div class="box prac"><span class="tag">✏️ 非試不可：寫出複數形</span>
-    <p class="zh">例：year → years</p>
-    <ol>
-      <li>box → [[boxes]]</li>
-      <li>wife → [[wives]]</li>
-      <li>toy → [[toys]]</li>
-      <li>gift → [[gifts]]</li>
-      <li>twin → [[twins]]</li>
-      <li>camera → [[cameras]]</li>
-      <li>watch → [[watches]]</li>
-      <li>butterfly → [[butterflies]]</li>
-    </ol>
-  </div>
-
   <div class="box gem"><span class="tag">💎 文法壓箱寶：可數／不可數兩用名詞</span>
     <div class="tw"><table>
       <tr><th></th><th>cake</th><th>chicken</th><th>exercise</th><th>fish</th><th>glass</th><th>paper</th><th>room</th><th>time</th></tr>
@@ -267,12 +265,12 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 
   <div class="box prac"><span class="tag">✏️ 非試不可：底線字詞可數 C／不可數 U</span>
     <ol>
-      <li>I'd like to eat some <u>fish</u>.　[[U]]</li>
-      <li>There are six <u>glasses</u> on the table.　[[C]]</li>
-      <li>Do it one more <u>time</u>!　[[C]]</li>
-      <li>We need to get more <u>exercise</u>.　[[U]]</li>
-      <li>We need some pens and <u>paper</u>.　[[U]]</li>
-      <li>There is a <u>room</u> here.　[[C]]</li>
+      <li>I'd like to eat some <u>fish</u>. {{我想吃一些魚。}}　[[U]]</li>
+      <li>There are six <u>glasses</u> on the table. {{桌上有六個杯子。}}　[[C]]</li>
+      <li>Do it one more <u>time</u>! {{再做一次！}}　[[C]]</li>
+      <li>We need to get more <u>exercise</u>. {{我們需要多運動。}}　[[U]]</li>
+      <li>We need some pens and <u>paper</u>. {{我們需要一些筆和紙。}}　[[U]]</li>
+      <li>There is a <u>room</u> here. {{這裡有一個房間。}}　[[C]]</li>
     </ol>
   </div>
 </div></section>
@@ -283,12 +281,12 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 <div class="sec-b">
   <p>單數的可數名詞，指「一個」時，前面應加上 a 或 an：</p>
   <div class="grid">
-    <div class="tile y"><h4>a ＋ [[子音]] 開頭的單字</h4>a person 一個人<br>a beautiful actress 一位美麗的女演員<br>a cat・a dog</div>
-    <div class="tile p"><h4>an ＋ [[母音]] 開頭的單字</h4>母音：a e i o u<br>an eye 一隻眼睛・an apple</div>
+    <div class="tile y"><h4>a ＋ [[子音]] 開頭的單字</h4>a person 一個人<br>a beautiful actress 一位美麗的女演員<br>a cat 一隻貓・a dog 一隻狗</div>
+    <div class="tile p"><h4>an ＋ [[母音]] 開頭的單字</h4>母音：a e i o u<br>an eye 一隻眼睛・an apple 一顆蘋果</div>
   </div>
   <div class="box key"><span class="tag">⭐ 重點：看「發音」不是看字母！</span>
-    <p><b>[[an]]</b> hour <span class="zh">[auə]（h 不發音）</span></p>
-    <p><b>[[an]]</b> M <span class="zh">[ɛm]</span>　　<b>[[an]]</b> S on superman <span class="zh">[ɛs]</span></p>
+    <p><b>[[an]]</b> hour 一小時 <span class="zh">（h 不發音，hour 唸起來以母音開頭）</span></p>
+    <p><b>[[an]]</b> M　<b>[[an]]</b> S on Superman <span class="zh">超人身上的 S（字母 M、S 唸起來以母音開頭）</span></p>
   </div>
   <p>★ <mark>專有名詞（人名、地名等）、科目</mark>…等的前面 <b class="em">[[不加]]</b> a 或 an。</p>
   <p class="ex">Taiwan 台灣　　math 數學</p>
@@ -397,46 +395,60 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 <div class="sec-b">
   <div class="tw"><table>
     <tr><th>複數形成規則</th><th>範例</th></tr>
-    <tr><td>❶ 一般名詞 → [[＋ s]]</td><td>candle → candles／girl → girls</td></tr>
-    <tr><td>❷ 字尾為 s, z, x, sh, ch → [[＋ es]]</td><td>class → [[classes]]／brush → [[brushes]]</td></tr>
-    <tr><td>❸ 字尾為「子音＋y」→ [[去 y ＋ ies]]</td><td>city → [[cities]]／party → [[parties]]</td></tr>
-    <tr><td>❹ 字尾為「母音＋y」→ [[直接＋ s]]</td><td>boy → [[boys]]／toy → toys</td></tr>
-    <tr><td>❺ 字尾為 f, fe → [[去 f, fe ＋ ves]]</td><td>leaf → [[leaves]]／knife → [[knives]]</td></tr>
-    <tr><td>❻ 單複數同形 → [[不變]]</td><td>sheep → [[sheep]]／deer → [[deer]]</td></tr>
-    <tr><td>❼ 不規則複數名詞 → 無規則</td><td>man → [[men]]／foot → [[feet]]</td></tr>
+    <tr><td>❶ 一般名詞 → [[＋ s]]</td><td>candle 蠟燭 → candles／girl 女孩 → girls</td></tr>
+    <tr><td>❷ 字尾為 s, z, x, sh, ch → [[＋ es]]</td><td>class 班級 → [[classes]]／brush 刷子 → [[brushes]]</td></tr>
+    <tr><td>❸ 字尾為「子音＋y」→ [[去 y ＋ ies]]</td><td>city 城市 → [[cities]]／party 派對 → [[parties]]</td></tr>
+    <tr><td>❹ 字尾為「母音＋y」→ [[直接＋ s]]</td><td>boy 男孩 → [[boys]]／toy 玩具 → toys</td></tr>
+    <tr><td>❺ 字尾為 f, fe → [[去 f, fe ＋ ves]]</td><td>leaf 葉子 → [[leaves]]／knife 刀子 → [[knives]]</td></tr>
+    <tr><td>❻ 單複數同形 → [[不變]]</td><td>sheep 綿羊 → [[sheep]]／deer 鹿 → [[deer]]</td></tr>
+    <tr><td>❼ 不規則複數名詞 → 無規則</td><td>man 男人 → [[men]]／foot 腳 → [[feet]]</td></tr>
   </table></div>
-  <p>※ 注意 quiz 的複數形為 <b>[[quizzes]]</b></p>
+  <p>※ 注意 quiz（小考）的複數形為 <b>[[quizzes]]</b></p>
 
   <div class="box key"><span class="tag">⭐ 上課口訣：死・幽・浮 ＋ es</span>
     <p>字尾是 <b>S</b>（死）、<b>Y</b>、<b>O</b>（幽）、<b>F</b>（浮）這幾類要特別注意：</p>
     <div class="grid">
-      <div class="tile p"><h4>S 類 → ＋es</h4>buses・boxes・brushes・watches</div>
-      <div class="tile y"><h4>子音＋y → [[ies]]</h4>babies・cities<br># 例外（母音＋y 直接 +s）：keys・boys</div>
-      <div class="tile g"><h4>子音＋o → [[es]]</h4>potatoes・tomatoes<br># 母音＋o 直接 +s：radios・videos<br>例外：[[pianos]]・[[photographs]]（take photos）</div>
-      <div class="tile b"><h4>f / fe → [[ves]]</h4>leaves・wives<br>例外：[[roofs]]・[[chiefs]]</div>
+      <div class="tile p"><h4>S 類 → ＋es</h4>buses 公車・boxes 盒子・brushes 刷子・watches 手錶</div>
+      <div class="tile y"><h4>子音＋y → [[ies]]</h4>babies 嬰兒・cities 城市<br># 例外（母音＋y 直接 +s）：keys 鑰匙・boys 男孩</div>
+      <div class="tile g"><h4>子音＋o → [[es]]</h4>potatoes 馬鈴薯・tomatoes 番茄<br># 母音＋o 直接 +s：radios 收音機・videos 影片<br>例外：[[pianos]] 鋼琴・[[photographs]] 照片（take photos 拍照）</div>
+      <div class="tile b"><h4>f / fe → [[ves]]</h4>leaves 葉子・wives 妻子<br>例外：[[roofs]] 屋頂</div>
     </div>
   </div>
 
   <h3>不規則變化</h3>
   <div class="tw"><table>
     <tr><th>類型</th><th>單數 → 複數</th></tr>
-    <tr><td class="rh">man → men</td><td>man（男人）→ [[men]]・woman（女人）→ [[women]]・policeman（警察）→ [[policemen]]<br>gentleman → [[gentlemen]]・salesman → [[salesmen]]</td></tr>
+    <tr><td class="rh">man → men</td><td>man（男人）→ [[men]]・woman（女人）→ [[women]]・policeman（警察）→ [[policemen]]<br>gentleman（紳士）→ [[gentlemen]]・salesman（銷售員）→ [[salesmen]]</td></tr>
     <tr><td class="rh">oo → ee</td><td>foot（腳）→ [[feet]]・tooth（牙齒）→ [[teeth]]・goose（鵝）→ [[geese]]</td></tr>
     <tr><td class="rh">ouse → ice</td><td>mouse（老鼠）→ [[mice]]</td></tr>
     <tr><td class="rh">特殊字</td><td>child（小孩）→ [[children]]・ox（公牛）→ [[oxen]]</td></tr>
-    <tr><td class="rh">people</td><td>people（人們）＝ person 的複數；一個人 person ＋ s → persons<br><span class="zh">Young people like pop music.</span></td></tr>
-    <tr><td class="rh">單複數同形</td><td>fish（魚）・sheep・deer</td></tr>
+    <tr><td class="rh">people</td><td>people（人們）＝ person 的複數；一個人 person ＋ s → persons<br>Young people like pop music. <span class="zh">年輕人喜歡流行音樂。</span></td></tr>
+    <tr><td class="rh">單複數同形</td><td>fish（魚）・sheep（綿羊）・deer（鹿）</td></tr>
   </table></div>
+
+  <div class="box prac"><span class="tag">✏️ 非試不可：寫出複數形</span>
+    <p class="zh">例：year（年）→ years</p>
+    <ol>
+      <li>box <span class="zh">盒子</span> → [[boxes]]</li>
+      <li>wife <span class="zh">妻子</span> → [[wives]]</li>
+      <li>toy <span class="zh">玩具</span> → [[toys]]</li>
+      <li>gift <span class="zh">禮物</span> → [[gifts]]</li>
+      <li>twin <span class="zh">雙胞胎之一</span> → [[twins]]</li>
+      <li>camera <span class="zh">相機</span> → [[cameras]]</li>
+      <li>watch <span class="zh">手錶</span> → [[watches]]</li>
+      <li>butterfly <span class="zh">蝴蝶</span> → [[butterflies]]</li>
+    </ol>
+  </div>
 
   <div class="box prac"><span class="tag">✏️ 牛刀小試：改錯（點開看正確寫法）</span>
     <ol>
-      <li>He is [[a]] teacher.</li>
-      <li>We are [[students]].</li>
-      <li>My parents have ten [[babies]].</li>
-      <li>The [[housewives]] are shopping.</li>
-      <li>[[An]] apple is 5 dollars.</li>
-      <li>[[Women]] love their [[children]].</li>
-      <li>Your [[teeth]] are very beautiful.</li>
+      <li>He is [[a]] teacher. {{他是一位老師。}}</li>
+      <li>We are [[students]]. {{我們是學生。}}</li>
+      <li>My parents have ten [[babies]]. {{我父母有十個寶寶。}}</li>
+      <li>The [[housewives]] are shopping. {{家庭主婦們正在購物。}}</li>
+      <li>[[An]] apple is 5 dollars. {{一顆蘋果 5 元。}}</li>
+      <li>[[Women]] love their [[children]]. {{女人們愛她們的孩子。}}</li>
+      <li>Your [[teeth]] are very beautiful. {{你的牙齒非常漂亮。}}</li>
     </ol>
   </div>
 </div></section>
@@ -475,10 +487,10 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 
   <div class="box prac"><span class="tag">✏️ 非試不可：選擇</span>
     <ul class="mc">
-      <li>1. ______ mother is Molly. She is very kind.
+      <li>1. ______ mother is Molly. She is very kind. {{______ 的媽媽是 Molly，她非常親切。}}
         <div class="opts"><span>(A) Fred and George</span><span>(B) Fred's and George</span><span>(C) Fred and George's</span><span>(D) Fred's and George's</span></div>
         答案：[[(C)　兩人共同的媽媽 → A and B's]]</li>
-      <li>2. Welcome to the party. It's ______ night, so all drinks are free for women.
+      <li>2. Welcome to the party. It's ______ night, so all drinks are free for women. {{歡迎來到派對。今晚是 ______ 之夜，所以女士們的飲料全部免費。}}
         <div class="opts"><span>(A) lady's</span><span>(B) ladies'</span><span>(C) lady</span><span>(D) ladies's</span></div>
         答案：[[(B)　規則複數 ladies → 只加 ' ]]</li>
     </ul>
@@ -558,12 +570,12 @@ td.rh{font-weight:900;background:#fff3d6 !important}
     <tr><th>問句</th><th>回答</th></tr>
     <tr><td rowspan="4">Is this your car?<br><span class="zh">這是你的車嗎？</span></td><td>Yes, [[it is]].（肯定簡答）</td></tr>
     <tr><td>No, [[it isn't]].（否定簡答）</td></tr>
-    <tr><td>Yes, it is my car.（肯定詳答）</td></tr>
-    <tr><td>No, it is not my car.（否定詳答）</td></tr>
+    <tr><td>Yes, it is my car.（肯定詳答）<span class="zh">是的，它是我的車。</span></td></tr>
+    <tr><td>No, it is not my car.（否定詳答）<span class="zh">不，它不是我的車。</span></td></tr>
     <tr><td rowspan="4">Are those his classmates?<br><span class="zh">那些是他的同班同學嗎？</span></td><td>Yes, [[they are]].（肯定簡答）</td></tr>
     <tr><td>No, [[they are not]].（否定簡答）</td></tr>
-    <tr><td>Yes, they are his classmates.（肯定詳答）</td></tr>
-    <tr><td>No, they are not his classmates.（否定詳答）</td></tr>
+    <tr><td>Yes, they are his classmates.（肯定詳答）<span class="zh">是的，他們是他的同班同學。</span></td></tr>
+    <tr><td>No, they are not his classmates.（否定詳答）<span class="zh">不，他們不是他的同班同學。</span></td></tr>
   </table></div>
 
   <div class="box tip"><span class="tag">📝 用法小秘訣</span>
@@ -634,22 +646,22 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   <p>直述句包括「肯定句」及「否定句」。肯定句為「主詞 ＋ be 動詞…」表示「…是…」；否定句為「主詞 ＋ be 動詞 ＋ [[not]]…」表示「…不是…」。</p>
   <div class="tw"><table>
     <tr><th>主詞</th><th>be 動詞</th><th>(否定詞)</th><th>主詞補語（名詞）</th></tr>
-    <tr><td>I</td><td>[[am]]</td><td rowspan="5" class="c">(not)</td><td>a student.</td></tr>
-    <tr><td>You</td><td>[[are]]</td><td>our teacher.</td></tr>
-    <tr><td>He/She</td><td rowspan="2">[[is]]</td><td>Tom/Mary.</td></tr>
-    <tr><td>It</td><td>a dog.</td></tr>
-    <tr><td>We/You/They</td><td>[[are]]</td><td>brother and sister.</td></tr>
+    <tr><td>I</td><td>[[am]]</td><td rowspan="5" class="c">(not)</td><td>a student. <span class="zh">一個學生</span></td></tr>
+    <tr><td>You</td><td>[[are]]</td><td>our teacher. <span class="zh">我們的老師</span></td></tr>
+    <tr><td>He/She</td><td rowspan="2">[[is]]</td><td>Tom/Mary. <span class="zh">Tom／Mary</span></td></tr>
+    <tr><td>It</td><td>a dog. <span class="zh">一隻狗</span></td></tr>
+    <tr><td>We/You/They</td><td>[[are]]</td><td>brother and sister. <span class="zh">兄弟姊妹</span></td></tr>
   </table></div>
 
   <h3>句型 2：Yes/No 疑問句及其答句</h3>
   <p>Yes/No 問句表示「…是…嗎？」或「…不是…嗎？」。做法：<mark>將「主詞」和「be 動詞」[[順序交換]]，形成倒裝，並將句點改成問號</mark>。</p>
   <div class="tw"><table>
     <tr><th>問句</th><th>Yes 簡答</th><th>Yes 詳答</th><th>No 簡答</th><th>No 詳答</th></tr>
-    <tr><td>❶ Am I a good boy?</td><td>Yes, [[you are]].</td><td>You're a good boy.</td><td>No, you're not. / you aren't.</td><td>You're a bad boy. / You're not a good boy.</td></tr>
-    <tr><td>❷ Are(n't) you a student?</td><td>Yes, [[I am]].</td><td>I'm a student.</td><td>No, [[I'm not]]. / I am not.</td><td>I'm a teacher. / I'm not a student.</td></tr>
-    <tr><td>❸ Is(n't) he/she our teacher?</td><td>Yes, [[he/she is]].</td><td>He's/She's our teacher.</td><td>No, he's/she's not. / he/she isn't.</td><td>He's/She's our new classmate. / He's/She's not our teacher.</td></tr>
-    <tr><td>❹ Is(n't) it a cat?</td><td>Yes, [[it is]].</td><td>It's a cat.</td><td>No, it's not. / it isn't.</td><td>It's a dog. / It's not a cat.</td></tr>
-    <tr><td>❺ Are(n't) we/you/they brother and sister?</td><td>Yes, [[you/we/they are]].</td><td>You're/We're/They're brother and sister.</td><td>No, you're/we're/they're not. / you/we/they aren't.</td><td>…husband and wife. / …not brother and sister.</td></tr>
+    <tr><td>❶ Am I a good boy?<br><span class="zh">我是好男孩嗎？</span></td><td>Yes, [[you are]].</td><td>You're a good boy.</td><td>No, you're not. / you aren't.</td><td>You're a bad boy. / You're not a good boy.</td></tr>
+    <tr><td>❷ Are(n't) you a student?<br><span class="zh">你是學生嗎？</span></td><td>Yes, [[I am]].</td><td>I'm a student.</td><td>No, [[I'm not]]. / I am not.</td><td>I'm a teacher. / I'm not a student.</td></tr>
+    <tr><td>❸ Is(n't) he/she our teacher?<br><span class="zh">他／她是我們的老師嗎？</span></td><td>Yes, [[he/she is]].</td><td>He's/She's our teacher.</td><td>No, he's/she's not. / he/she isn't.</td><td>He's/She's our new classmate. / He's/She's not our teacher.</td></tr>
+    <tr><td>❹ Is(n't) it a cat?<br><span class="zh">它是貓嗎？</span></td><td>Yes, [[it is]].</td><td>It's a cat.</td><td>No, it's not. / it isn't.</td><td>It's a dog. / It's not a cat.</td></tr>
+    <tr><td>❺ Are(n't) we/you/they brother and sister?<br><span class="zh">我們／你們／他們是兄弟姊妹嗎？</span></td><td>Yes, [[you/we/they are]].</td><td>You're/We're/They're brother and sister.</td><td>No, you're/we're/they're not. / you/we/they aren't.</td><td>…husband and wife. / …not brother and sister.<br><span class="zh">husband and wife 夫妻</span></td></tr>
   </table></div>
   <div class="box warn"><span class="tag">❤️ 注意人稱轉換</span>
     <p>問 <b>I</b> → 答 <b>[[you]]</b>；問 <b>you</b>（單數）→ 答 <b>[[I]]</b>；問 we → 答 you；問 you（複數）→ 答 we。</p>
@@ -659,54 +671,54 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   <p>句首為 Wh- 疑問詞，常見的有 who（[[誰]]）、what（[[什麼]]）、when（[[何時]]）、where（[[何地]]）、which（[[哪一個]]）、whose（[[誰的]]）、how（[[如何]]）等，後接「<mark>be 動詞 ＋ 主詞</mark>」，be 動詞須視主詞而定。</p>
   <div class="tw"><table>
     <tr><th>Wh- 問句</th><th>Wh- 答句</th></tr>
-    <tr><td>❶ How are you?</td><td>I am [[fine. / okay.]]</td></tr>
-    <tr><td>❷ What is your name?</td><td>My name is Tom.</td></tr>
-    <tr><td>❷ What is your phone number?</td><td>My phone number is 02-2222-2222.</td></tr>
-    <tr><td>❸ Who are you?</td><td>I am Hank's father.</td></tr>
-    <tr><td>❹ How old am I?</td><td>You are [[three (years old)]].</td></tr>
-    <tr><td>❺ Where are you from?</td><td>I am [[from]] Taiwan.</td></tr>
+    <tr><td>❶ How are you? <span class="zh">你好嗎？</span></td><td>I am [[fine. / okay.]]</td></tr>
+    <tr><td>❷ What is your name? <span class="zh">你叫什麼名字？</span></td><td>My name is Tom.</td></tr>
+    <tr><td>❷ What is your phone number? <span class="zh">你的電話號碼是幾號？</span></td><td>My phone number is 02-2222-2222.</td></tr>
+    <tr><td>❸ Who are you? <span class="zh">你是誰？</span></td><td>I am Hank's father. <span class="zh">我是 Hank 的爸爸。</span></td></tr>
+    <tr><td>❹ How old am I? <span class="zh">我幾歲？</span></td><td>You are [[three (years old)]].</td></tr>
+    <tr><td>❺ Where are you from? <span class="zh">你從哪裡來？</span></td><td>I am [[from]] Taiwan.</td></tr>
   </table></div>
 
   <h3>代名詞 it/this/that、they/these/those 之 Yes/No 問答</h3>
   <p>簡答時<mark>第三人稱單數物品須用人稱代名詞 [[it]] 代替；複數則用人稱代名詞 [[they]] 代替</mark>。</p>
   <div class="tw"><table>
     <tr><th></th><th>Yes/No 問句</th><th>簡答</th><th>詳答</th></tr>
-    <tr><td class="rh">單數</td><td>Is it/this/that a birthday party?</td><td>Yes, [[it is]].<br>No, [[it's not]].</td><td>It/This/That is a birthday party.<br>It/This/That is a costume party.</td></tr>
-    <tr><td class="rh">複數</td><td>Are they/these/those baseballs?</td><td>Yes, [[they are]].<br>No, [[they're not]].</td><td>They/These/Those are baseballs.<br>They/These/Those are softballs.</td></tr>
+    <tr><td class="rh">單數</td><td>Is it/this/that a birthday party?</td><td>Yes, [[it is]].<br>No, [[it's not]].</td><td>It/This/That is a birthday party.<br>It/This/That is a costume party.<br><span class="zh">birthday party 生日派對・costume party 變裝派對</span></td></tr>
+    <tr><td class="rh">複數</td><td>Are they/these/those baseballs?</td><td>Yes, [[they are]].<br>No, [[they're not]].</td><td>They/These/Those are baseballs.<br>They/These/Those are softballs.<br><span class="zh">baseball 棒球・softball 壘球</span></td></tr>
   </table></div>
 
   <h3>含 this/that 問「人」時的 Yes/No 問答</h3>
   <p>直述句 This/That is (not) Jack. → 問句 <b>[[Is(n't)]]</b> this/that Jack?<br>回答時須用第三人稱單數代名詞 <mark>[[he/she]] 代替人，用 [[it]] 代替事物</mark>。</p>
   <div class="tw"><table>
     <tr><th>問句</th><th>肯定</th><th>否定</th></tr>
-    <tr><td>Is this/that Jack?</td><td>Yes, [[he is]]. He's Jack.</td><td>No, [[he's not]]. He's Hank.</td></tr>
-    <tr><td>Is this/that your sister?</td><td>Yes, [[she is]]. She's my sister.</td><td>No, [[she's not]]. She's my mother.</td></tr>
-    <tr><td>Is this/that a garden?</td><td>Yes, [[it is]]. It's a garden.</td><td>No, [[it's not]]. It's a park.</td></tr>
+    <tr><td>Is this/that Jack? <span class="zh">這／那是 Jack 嗎？</span></td><td>Yes, [[he is]]. He's Jack.</td><td>No, [[he's not]]. He's Hank.</td></tr>
+    <tr><td>Is this/that your sister? <span class="zh">這／那是你的姊妹嗎？</span></td><td>Yes, [[she is]]. She's my sister.</td><td>No, [[she's not]]. She's my mother.</td></tr>
+    <tr><td>Is this/that a garden? <span class="zh">這／那是花園嗎？</span></td><td>Yes, [[it is]]. It's a garden.</td><td>No, [[it's not]]. It's a park.</td></tr>
   </table></div>
   <div class="box warn"><span class="tag">❤️ 愛的小叮嚀</span>
     <p>指示代名詞 this/that 用於詢問事物時，回答須用單數人稱代名詞 it 代替 this/that。</p>
-    <p>A: Is this/that a pen?　B: <span class="o">Yes, it is. / No, it isn't. (O)</span>　<span class="x">Yes, this/that is. / No, this/that isn't. (×)</span></p>
+    <p>A: Is this/that a pen? <span class="zh">這／那是筆嗎？</span>　B: <span class="o">Yes, it is. / No, it isn't. (O)</span>　<span class="x">Yes, this/that is. / No, this/that isn't. (×)</span></p>
   </div>
 
   <div class="box prac"><span class="tag">✏️ 非試不可：依提示詳答</span>
     <ol>
-      <li>A: Is this a garden? (park)<br>B: [[No, it's not. It's a park.]]</li>
-      <li>A: Is that man your teacher? (coach)<br>B: [[No, he's not. He's my coach.]]</li>
-      <li>A: Is this your dog? (my dog)<br>B: [[Yes, it is. It's my dog.]]</li>
-      <li>A: Is that your sister? (cousin)<br>B: [[No, she's not. She's my cousin.]]</li>
-      <li>A: Is this your house? (Amy's house)<br>B: [[No, it's not. It's Amy's house.]]</li>
-      <li>A: Is this man Joe's uncle? (Joe's brother)<br>B: [[No, he's not. He's Joe's brother.]]</li>
+      <li>A: Is this a garden? (park) {{這是花園嗎？（公園）}}<br>B: [[No, it's not. It's a park.]]</li>
+      <li>A: Is that man your teacher? (coach) {{那位男士是你的老師嗎？（教練）}}<br>B: [[No, he's not. He's my coach.]]</li>
+      <li>A: Is this your dog? (my dog) {{這是你的狗嗎？（我的狗）}}<br>B: [[Yes, it is. It's my dog.]]</li>
+      <li>A: Is that your sister? (cousin) {{那是你的姊妹嗎？（表親）}}<br>B: [[No, she's not. She's my cousin.]]</li>
+      <li>A: Is this your house? (Amy's house) {{這是你家嗎？（Amy 的家）}}<br>B: [[No, it's not. It's Amy's house.]]</li>
+      <li>A: Is this man Joe's uncle? (Joe's brother) {{這位男士是 Joe 的叔叔嗎？（Joe 的哥哥）}}<br>B: [[No, he's not. He's Joe's brother.]]</li>
     </ol>
   </div>
 
   <div class="box prac"><span class="tag">✏️ 非試不可：改寫成 Yes/No 問句並回答</span>
     <p class="zh">例：This is a pencil.（詳答；a pen）→ Is this a pencil? No, it/this is a pen.</p>
     <ol>
-      <li>Those are maple leaves.（簡答；Yes）<br>[[Are those maple leaves? Yes, they are.]]</li>
-      <li>That is a butterfly.（詳答；a bee）<br>[[Is that a butterfly? No, it/that is a bee.]]</li>
-      <li>These are dictionaries.（詳答；phone books）<br>[[Are these dictionaries? No, they/these are phone books.]]</li>
-      <li>This is a table game.（簡答；Yes）<br>[[Is this a table game? Yes, it is.]]</li>
-      <li>They are Tom's parents.（詳答；Sam's parents）<br>[[Are they Tom's parents? No, they are Sam's parents.]]</li>
+      <li>Those are maple leaves.（簡答；Yes） {{那些是楓葉。}}<br>[[Are those maple leaves? Yes, they are.]]</li>
+      <li>That is a butterfly.（詳答；a bee） {{那是一隻蝴蝶。（a bee 蜜蜂）}}<br>[[Is that a butterfly? No, it/that is a bee.]]</li>
+      <li>These are dictionaries.（詳答；phone books） {{這些是字典。（phone books 電話簿）}}<br>[[Are these dictionaries? No, they/these are phone books.]]</li>
+      <li>This is a table game.（簡答；Yes） {{這是一個桌遊。}}<br>[[Is this a table game? Yes, it is.]]</li>
+      <li>They are Tom's parents.（詳答；Sam's parents） {{他們是 Tom 的父母。}}<br>[[Are they Tom's parents? No, they are Sam's parents.]]</li>
     </ol>
   </div>
 
@@ -714,22 +726,22 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   <p>What 問句須將疑問詞 What 放句首，再將主詞與 be 動詞的順序交換，並將句點改成問號。<mark>What 和 is 可縮寫成 [[What's]]</mark>。</p>
   <div class="tw"><table>
     <tr><th></th><th>What 問句</th><th>What 答句</th></tr>
-    <tr><td class="rh">單數</td><td>What [[is]] it / this / that?</td><td>It is an eraser.<br>This/It is a poster.<br>That/It is a picture.</td></tr>
-    <tr><td class="rh">複數</td><td>What [[are]] they / these / those?</td><td>They are ropes.<br>These/They are gifts.<br>Those/They are butterflies.</td></tr>
+    <tr><td class="rh">單數</td><td>What [[is]] it / this / that?</td><td>It is an eraser.<br>This/It is a poster.<br>That/It is a picture.<br><span class="zh">eraser 橡皮擦・poster 海報・picture 圖畫</span></td></tr>
+    <tr><td class="rh">複數</td><td>What [[are]] they / these / those?</td><td>They are ropes.<br>These/They are gifts.<br>Those/They are butterflies.<br><span class="zh">rope 繩子・gift 禮物・butterfly 蝴蝶</span></td></tr>
   </table></div>
   <p class="ex">直述句 This/That is a house. / my mom. → Wh- 問句 <b>What</b> is this/that?（問物）／<b>[[Who]]</b> is this/that?（問人）<br>→ 答句 It / This/That is a house.・She is my mom.</p>
 
   <div class="box prac"><span class="tag">✏️ 非試不可：依劃線部分造原問句</span>
     <ol>
-      <li>That's <u>my grandmother's garden</u>.<br>[[What is / What's that?]]</li>
-      <li>This is <u>my birthday party</u>.<br>[[What is / What's this/that?]]</li>
-      <li>That woman is <u>my teacher, Miss Lin</u>.<br>[[Who is / Who's that woman?]]</li>
+      <li>That's <u>my grandmother's garden</u>. {{那是我奶奶的花園。}}<br>[[What is / What's that?]]</li>
+      <li>This is <u>my birthday party</u>. {{這是我的生日派對。}}<br>[[What is / What's this/that?]]</li>
+      <li>That woman is <u>my teacher, Miss Lin</u>. {{那位女士是我的老師林小姐。}}<br>[[Who is / Who's that woman?]]</li>
     </ol>
     <p><b>依提示回答問題：</b></p>
     <ol>
-      <li>A: Who is that woman? (my grandmother)<br>B: [[She's my grandmother.]]</li>
-      <li>A: What is that? (a puppy)<br>B: [[It's / That's a puppy.]]</li>
-      <li>A: Who is this? (my girlfriend)<br>B: [[This is / She's my girlfriend.]]</li>
+      <li>A: Who is that woman? (my grandmother) {{那位女士是誰？（我的奶奶）}}<br>B: [[She's my grandmother.]]</li>
+      <li>A: What is that? (a puppy) {{那是什麼？（一隻小狗）}}<br>B: [[It's / That's a puppy.]]</li>
+      <li>A: Who is this? (my girlfriend) {{這是誰？（我的女朋友）}}<br>B: [[This is / She's my girlfriend.]]</li>
     </ol>
   </div>
 </div></section>
@@ -740,8 +752,8 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 <div class="sec-b">
   <div class="tw"><table>
     <tr><th>問句</th><th>答句</th></tr>
-    <tr><td>What is your name?</td><td>My name is [[Jane]].</td></tr>
-    <tr><td>What is your phone number?</td><td>[[It's]] 0921-123-456.</td></tr>
+    <tr><td>What is your name? <span class="zh">你叫什麼名字？</span></td><td>My name is [[Jane]].</td></tr>
+    <tr><td>What is your phone number? <span class="zh">你的電話號碼是幾號？</span></td><td>[[It's]] 0921-123-456.</td></tr>
   </table></div>
 
   <h3>一位數 0～9</h3>
@@ -783,16 +795,16 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   <h3>形容詞當主詞補語</h3>
   <div class="tw"><table>
     <tr><th>用法</th><th>範例</th></tr>
-    <tr><td>❶ 形容詞可放在 [[be 動詞]]後當主詞補語，修飾主詞。</td><td>Harry is smart.</td></tr>
-    <tr><td>❷ Yes/No 問句將主詞和 be 動詞順序交換，句點改問號。回答時主詞要換成 [[人稱代名詞]]。</td><td>A: Is Sherry thin?<br>B: Yes, she is. She's thin.<br>　 No, she isn't. She's fat.</td></tr>
-    <tr><td>❸ 用 [[How]] 詢問人、事、物的狀況。回答要選擇合適的形容詞來說明。</td><td>A: How's your grandmother?<br>B: She's well. Thank you.</td></tr>
-    <tr><td>❹ 一個以上的形容詞當主詞補語：<br>A. 語意成正比：形容詞1 ＋ [[and]] ＋ 形容詞2／形容詞1, 形容詞2(,) ＋ and ＋ 形容詞3<br>B. 語意成對比：形容詞1 ＋ [[but]] ＋ 形容詞2</td><td>Henry is rich and handsome.<br>Jessica is tall, thin, and pretty.<br>Tom is smart but lazy.</td></tr>
+    <tr><td>❶ 形容詞可放在 [[be 動詞]]後當主詞補語，修飾主詞。</td><td>Harry is smart. <span class="zh">Harry 很聰明。</span></td></tr>
+    <tr><td>❷ Yes/No 問句將主詞和 be 動詞順序交換，句點改問號。回答時主詞要換成 [[人稱代名詞]]。</td><td>A: Is Sherry thin? <span class="zh">Sherry 瘦嗎？</span><br>B: Yes, she is. She's thin. <span class="zh">是，她很瘦。</span><br>　 No, she isn't. She's fat. <span class="zh">不，她很胖。</span></td></tr>
+    <tr><td>❸ 用 [[How]] 詢問人、事、物的狀況。回答要選擇合適的形容詞來說明。</td><td>A: How's your grandmother? <span class="zh">你奶奶好嗎？</span><br>B: She's well. Thank you. <span class="zh">她很好，謝謝。</span></td></tr>
+    <tr><td>❹ 一個以上的形容詞當主詞補語：<br>A. 語意成正比：形容詞1 ＋ [[and]] ＋ 形容詞2／形容詞1, 形容詞2(,) ＋ and ＋ 形容詞3<br>B. 語意成對比：形容詞1 ＋ [[but]] ＋ 形容詞2</td><td>Henry is rich and handsome. <span class="zh">Henry 又有錢又帥。</span><br>Jessica is tall, thin, and pretty. <span class="zh">Jessica 又高又瘦又漂亮。</span><br>Tom is smart but lazy. <span class="zh">Tom 很聰明但很懶。</span></td></tr>
   </table></div>
   <h3>前位修飾「形容詞 ＋ 名詞」</h3>
   <div class="tw"><table>
     <tr><th>用法</th><th>範例</th></tr>
-    <tr><td>❶ 形容詞放在名詞前修飾之，稱之為「[[前位修飾]]」。</td><td>My brother is a smart boy.</td></tr>
-    <tr><td>❷ Yes/No 問句：主詞和 be 動詞交換，句點改問號；回答時主詞換成人稱代名詞。</td><td>A: Is your husband a helpful person?<br>B: Yes, he is. He's very helpful.<br>　 No, he isn't. He's lazy.</td></tr>
+    <tr><td>❶ 形容詞放在名詞前修飾之，稱之為「[[前位修飾]]」。</td><td>My brother is a smart boy. <span class="zh">我弟弟是個聰明的男孩。</span></td></tr>
+    <tr><td>❷ Yes/No 問句：主詞和 be 動詞交換，句點改問號；回答時主詞換成人稱代名詞。</td><td>A: Is your husband a helpful person? <span class="zh">你先生是個樂於助人的人嗎？</span><br>B: Yes, he is. He's very helpful. <span class="zh">是，他非常樂於助人。</span><br>　 No, he isn't. He's lazy. <span class="zh">不，他很懶。</span></td></tr>
     <tr><td>❸ 形容詞超過一個時，按以下順序排列（不須以 and 連接）</td><td>two cute little white cats<br><span class="zh">兩隻可愛的小白貓</span></td></tr>
   </table></div>
   <div class="box key"><span class="tag">⭐ 形容詞排列順序</span>
@@ -811,18 +823,18 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   <p>地方介系詞（片語）可能是一個單字，如 in、on 等，也可能是個片語，如 in front of、across from 等，<mark>後可接名詞（片語）或代名詞</mark>，以表示該名詞的地點或位置。</p>
   <div class="tw"><table>
     <tr><th>介系詞（片語）</th><th>中文</th><th>圖示</th><th>例句</th></tr>
-    <tr><td><b>in / inside</b></td><td>[[在…裡面]]</td><td class="c">📦🐱</td><td>The cat is in/inside the box.<br><span class="zh">※ inside 強調「在裡面」而非「在外面」，且為「封閉」的空間。</span></td></tr>
-    <tr><td><b>on</b></td><td>[[在…上面（有直接接觸）]]</td><td class="c">🐱<br>📦</td><td>The cat is on the box.</td></tr>
-    <tr><td><b>in front of</b></td><td>[[在…前面]]</td><td class="c">🏠🐶</td><td>The dog is in front of the doghouse.</td></tr>
-    <tr><td><b>behind</b></td><td>[[在…背後]]</td><td class="c">🐶🏠</td><td>The dog is behind the doghouse.</td></tr>
-    <tr><td><b>next to / beside / by</b></td><td>[[在…旁邊]]</td><td class="c">🏠🐶</td><td>The dog is next to/beside/by the doghouse.</td></tr>
-    <tr><td><b>near</b></td><td>[[在…附近]]</td><td class="c">🐕🏠🐕</td><td>Four dogs are near the doghouse.</td></tr>
-    <tr><td><b>above</b></td><td>[[在…上面（沒有直接接觸）]]</td><td class="c">🐦<br>🏠</td><td>The bird is above the doghouse.</td></tr>
-    <tr><td><b>below</b></td><td>[[在…下面（沒有直接接觸）]]</td><td class="c">☁️<br>🐦</td><td>The bird is below the clouds.</td></tr>
-    <tr><td><b>under</b></td><td>[[在…下面（指正下方）]]</td><td class="c">🪑🐶</td><td>The dog is under the table.</td></tr>
-    <tr><td><b>between (A and B)</b></td><td>[[在…（兩者）之間]]</td><td class="c">🎁🐱🎁</td><td>The cat is between the boxes.</td></tr>
-    <tr><td><b>across</b></td><td>[[在…的另一頭]]</td><td class="c">🛣️🏠</td><td>The house is across the street.</td></tr>
-    <tr><td><b>across from</b></td><td>[[在…對面]]</td><td class="c">🏠↔⛪</td><td>The church is across from my house.</td></tr>
+    <tr><td><b>in / inside</b></td><td>[[在…裡面]]</td><td class="c">📦🐱</td><td>The cat is in/inside the box.<br><span class="zh">貓在箱子裡。</span><br><span class="zh">※ inside 強調「在裡面」而非「在外面」，且為「封閉」的空間。</span></td></tr>
+    <tr><td><b>on</b></td><td>[[在…上面（有直接接觸）]]</td><td class="c">🐱<br>📦</td><td>The cat is on the box.<br><span class="zh">貓在箱子上。</span></td></tr>
+    <tr><td><b>in front of</b></td><td>[[在…前面]]</td><td class="c">🏠🐶</td><td>The dog is in front of the doghouse.<br><span class="zh">狗在狗屋前面。</span></td></tr>
+    <tr><td><b>behind</b></td><td>[[在…背後]]</td><td class="c">🐶🏠</td><td>The dog is behind the doghouse.<br><span class="zh">狗在狗屋後面。</span></td></tr>
+    <tr><td><b>next to / beside / by</b></td><td>[[在…旁邊]]</td><td class="c">🏠🐶</td><td>The dog is next to/beside/by the doghouse.<br><span class="zh">狗在狗屋旁邊。</span></td></tr>
+    <tr><td><b>near</b></td><td>[[在…附近]]</td><td class="c">🐕🏠🐕</td><td>Four dogs are near the doghouse.<br><span class="zh">四隻狗在狗屋附近。</span></td></tr>
+    <tr><td><b>above</b></td><td>[[在…上面（沒有直接接觸）]]</td><td class="c">🐦<br>🏠</td><td>The bird is above the doghouse.<br><span class="zh">鳥在狗屋的上方。</span></td></tr>
+    <tr><td><b>below</b></td><td>[[在…下面（沒有直接接觸）]]</td><td class="c">☁️<br>🐦</td><td>The bird is below the clouds.<br><span class="zh">鳥在雲的下方。</span></td></tr>
+    <tr><td><b>under</b></td><td>[[在…下面（指正下方）]]</td><td class="c">🪑🐶</td><td>The dog is under the table.<br><span class="zh">狗在桌子下面。</span></td></tr>
+    <tr><td><b>between (A and B)</b></td><td>[[在…（兩者）之間]]</td><td class="c">🎁🐱🎁</td><td>The cat is between the boxes.<br><span class="zh">貓在兩個箱子之間。</span></td></tr>
+    <tr><td><b>across</b></td><td>[[在…的另一頭]]</td><td class="c">🛣️🏠</td><td>The house is across the street.<br><span class="zh">房子在街道的另一頭。</span></td></tr>
+    <tr><td><b>across from</b></td><td>[[在…對面]]</td><td class="c">🏠↔⛪</td><td>The church is across from my house.<br><span class="zh">教堂在我家對面。</span></td></tr>
   </table></div>
 
   <div class="box prac"><span class="tag">✏️ 非試不可：引導式翻譯（一格限填一字）</span>
@@ -839,26 +851,26 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   <div class="box cmp"><span class="tag">🔍 傻傻分不清</span>
     <div class="tw"><table>
       <tr><th>比較</th><th>說明</th><th>例句</th></tr>
-      <tr><td class="rh" rowspan="2">in / at ＋地點</td><td><b>in</b> 表示在建築物、城鎮、國家等某個 [[範圍裡]]。</td><td>May is in a store. ☞ 強調在建築物裡面<br>May is in Taiwan. ☞ 強調在某個大地區裡面</td></tr>
-      <tr><td><b>at</b> 表示「在…地點」，強調的是「[[點]]」的概念。</td><td>Turn right at the church. ☞ 強調在某個點右轉</td></tr>
-      <tr><td class="rh" rowspan="2">in / on ＋交通工具</td><td><b>in</b>：汽車、計程車等空間 [[較狹小且無法站立行走]] 的交通工具裡。</td><td>Paul is [[in]] a car/taxi.</td></tr>
-      <tr><td><b>on</b>：公車、火車、飛機、船艦等空間 [[較大且可以站立行走]] 的交通工具裡。</td><td>Paul is [[on]] a bus/train/plane/ship.</td></tr>
-      <tr><td class="rh" rowspan="2">at ＋名詞 vs.<br>at ＋ the ＋地點</td><td>at home 在家（表示在「自己」家）<br>at school 在校唸書・at church 在教堂作禮拜 → 強調 [[動作]]</td><td>Jack is not at home. He's at school.<br>My grandpa and grandma are at church.</td></tr>
-      <tr><td>at the school 在這所學校・at the church 在這座教堂 → 強調 [[位置]]</td><td>Your mother is at the school. She's talking to your brother's teacher.<br>Let's meet at the church. It's very large and beautiful.</td></tr>
-      <tr><td class="rh" rowspan="2">on ＋名詞 vs.<br>on ＋ the ＋名詞</td><td>on TV [[上電視]]・on the TV [[在那台電視機上面]]</td><td>Look! I'm on TV!<br>Your keys are on the TV.</td></tr>
-      <tr><td>on the radio 上廣播節目；在廣播中<br>on the phone 在講電話中</td><td>My favorite show is on the radio now!<br>Mom is on the phone.</td></tr>
-      <tr><td class="rh" rowspan="2">in front of vs.<br>in the front of</td><td><b>in front of</b>「在…前面」，指 [[不在某物體之中]]，而是物體之外的前面。</td><td>The teacher is in front of the whiteboard.</td></tr>
-      <tr><td><b>in the front of</b>「在…的前段」，指 [[在某物體之中]] 的前段位置，亦作 at the front of。</td><td>The old lady is in/at the front of the bus.</td></tr>
+      <tr><td class="rh" rowspan="2">in / at ＋地點</td><td><b>in</b> 表示在建築物、城鎮、國家等某個 [[範圍裡]]。</td><td>May is in a store. <span class="zh">May 在一間商店裡。</span> ☞ 強調在建築物裡面<br>May is in Taiwan. <span class="zh">May 在台灣。</span> ☞ 強調在某個大地區裡面</td></tr>
+      <tr><td><b>at</b> 表示「在…地點」，強調的是「[[點]]」的概念。</td><td>Turn right at the church. <span class="zh">在教堂那裡右轉。</span> ☞ 強調在某個點右轉</td></tr>
+      <tr><td class="rh" rowspan="2">in / on ＋交通工具</td><td><b>in</b>：汽車、計程車等空間 [[較狹小且無法站立行走]] 的交通工具裡。</td><td>Paul is [[in]] a car/taxi. <span class="zh">Paul 在汽車／計程車裡。</span></td></tr>
+      <tr><td><b>on</b>：公車、火車、飛機、船艦等空間 [[較大且可以站立行走]] 的交通工具裡。</td><td>Paul is [[on]] a bus/train/plane/ship. <span class="zh">Paul 在公車／火車／飛機／船上。</span></td></tr>
+      <tr><td class="rh" rowspan="2">at ＋名詞 vs.<br>at ＋ the ＋地點</td><td>at home 在家（表示在「自己」家）<br>at school 在校唸書・at church 在教堂作禮拜 → 強調 [[動作]]</td><td>Jack is not at home. He's at school. <span class="zh">Jack 不在家，他在學校上課。</span><br>My grandpa and grandma are at church. <span class="zh">我爺爺奶奶在教堂做禮拜。</span></td></tr>
+      <tr><td>at the school 在這所學校・at the church 在這座教堂 → 強調 [[位置]]</td><td>Your mother is at the school. She's talking to your brother's teacher. <span class="zh">你媽媽在學校，她正在跟你哥哥的老師說話。</span><br>Let's meet at the church. It's very large and beautiful. <span class="zh">我們約在教堂見面吧，它又大又漂亮。</span></td></tr>
+      <tr><td class="rh" rowspan="2">on ＋名詞 vs.<br>on ＋ the ＋名詞</td><td>on TV [[上電視]]・on the TV [[在那台電視機上面]]</td><td>Look! I'm on TV! <span class="zh">你看！我上電視了！</span><br>Your keys are on the TV. <span class="zh">你的鑰匙在電視機上。</span></td></tr>
+      <tr><td>on the radio 上廣播節目；在廣播中<br>on the phone 在講電話中</td><td>My favorite show is on the radio now! <span class="zh">我最喜歡的節目正在廣播！</span><br>Mom is on the phone. <span class="zh">媽媽在講電話。</span></td></tr>
+      <tr><td class="rh" rowspan="2">in front of vs.<br>in the front of</td><td><b>in front of</b>「在…前面」，指 [[不在某物體之中]]，而是物體之外的前面。</td><td>The teacher is in front of the whiteboard. <span class="zh">老師在白板前面。</span></td></tr>
+      <tr><td><b>in the front of</b>「在…的前段」，指 [[在某物體之中]] 的前段位置，亦作 at the front of。</td><td>The old lady is in/at the front of the bus. <span class="zh">老太太在公車的前段。</span></td></tr>
     </table></div>
   </div>
 
   <div class="box gem"><span class="tag">💎 特殊介系詞片語</span>
     <p><b>at</b> the desk 在桌前・<b>at</b> the door 在門前・<b>at</b> the window 在窗前・<b>at</b> the traffic light 在紅綠燈前<br>※ 以上介系詞 <mark>[[不能使用 in front of]]</mark></p>
-    <p class="ex">Alice is at the desk. / Who's at the door? / Vicky is at the window. / The taxi is waiting at the traffic light.</p>
-    <p><b>in</b> one's hand 在某人的手上・<b>in</b> the tree 在樹上（on the tree 指在樹的「[[頂端]]」）<br>※ 以上介系詞 <mark>[[不能使用 on]]</mark></p>
-    <p class="ex">A gold coin is in his hand. / Two birds are in the tree.</p>
+    <p class="ex">Alice is at the desk. <span class="zh">Alice 在書桌前。</span><br>Who's at the door? <span class="zh">誰在門口？</span><br>Vicky is at the window. <span class="zh">Vicky 在窗邊。</span><br>The taxi is waiting at the traffic light. <span class="zh">計程車在紅綠燈前等著。</span></p>
+    <p><b>in</b> one's hand 在某人的手上・<b>in</b> the tree 在樹上<br>※ 以上介系詞 <mark>[[不能使用 on]]</mark></p>
+    <p class="ex">A gold coin is in his hand. <span class="zh">他手上有一枚金幣。</span><br>Two birds are in the tree. <span class="zh">兩隻鳥在樹上。</span></p>
     <p><b>at the end of</b> 在…的盡頭・<b>in the end</b> 最後（意同於 [[finally]]）</p>
-    <p class="ex">A girl is standing at the end of the tunnel.<br>In the end, the frog changes into a handsome prince.</p>
+    <p class="ex">A girl is standing at the end of the tunnel. <span class="zh">一個女孩站在隧道的盡頭。</span><br>In the end, the frog changes into a handsome prince. <span class="zh">最後，青蛙變成了英俊的王子。</span></p>
   </div>
 
   <div class="box prac"><span class="tag">✏️ 非試不可：引導式翻譯（一格不限填一字）</span>
@@ -884,10 +896,10 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   <h3>地方介系詞片語之應用句型</h3>
   <div class="tw"><table>
     <tr><th>句型</th><th>疑問詞／be 動詞</th><th>主詞</th><th>地方介系詞片語</th></tr>
-    <tr><td class="rh">直述句</td><td>Your brother is</td><td>—</td><td>in his bedroom.</td></tr>
-    <tr><td class="rh" rowspan="2">Yes/No 問句</td><td>[[Is]]</td><td>your sister</td><td>in the bathroom?</td></tr>
-    <tr><td>[[Are]]</td><td>my birthday gifts / my glasses</td><td>on the table?</td></tr>
-    <tr><td class="rh">What/Who 問句</td><td colspan="2">[[Who / What]] is（疑問詞當主詞）</td><td>in the bathroom? / on the table?</td></tr>
+    <tr><td class="rh">直述句</td><td>Your brother is</td><td>—</td><td>in his bedroom. <span class="zh">你哥哥在他的臥室裡。</span></td></tr>
+    <tr><td class="rh" rowspan="2">Yes/No 問句</td><td>[[Is]]</td><td>your sister</td><td>in the bathroom? <span class="zh">你姊姊在浴室嗎？</span></td></tr>
+    <tr><td>[[Are]]</td><td>my birthday gifts / my glasses</td><td>on the table? <span class="zh">我的生日禮物／眼鏡在桌上嗎？</span></td></tr>
+    <tr><td class="rh">What/Who 問句</td><td colspan="2">[[Who / What]] is（疑問詞當主詞）</td><td>in the bathroom? / on the table? <span class="zh">誰在浴室？／什麼在桌上？</span></td></tr>
   </table></div>
   <p>詢問某地有何人、事、物時用 <mark>[[who 或 what]]</mark>。</p>
 
@@ -906,21 +918,21 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   <p>詢問人、事物、地點在哪裡：<mark>[[Where]] ＋ be 動詞 ＋ 主詞？</mark>，回答時常用地方介系詞片語。</p>
   <div class="tw"><table>
     <tr><th>問句</th><th>答句</th></tr>
-    <tr><td>Where [[am]] I?</td><td>You are in my house.</td></tr>
-    <tr><td>Where [[is]] my cellphone?</td><td>It is on the desk.</td></tr>
-    <tr><td>Where [[are]] my cookies?</td><td>They are in the dining room.</td></tr>
-    <tr><td>Where is my watch?</td><td>[[It]] is in the dining room.</td></tr>
-    <tr><td>Where are the cupcakes?</td><td>[[They]] are in the kitchen.</td></tr>
+    <tr><td>Where [[am]] I?</td><td>You are in my house. <span class="zh">我在哪裡？——你在我家。</span></td></tr>
+    <tr><td>Where [[is]] my cellphone?</td><td>It is on the desk. <span class="zh">我的手機在哪？——在書桌上。</span></td></tr>
+    <tr><td>Where [[are]] my cookies?</td><td>They are in the dining room. <span class="zh">我的餅乾在哪？——在餐廳。</span></td></tr>
+    <tr><td>Where is my watch?</td><td>[[It]] is in the dining room. <span class="zh">我的手錶在哪？——在餐廳。</span></td></tr>
+    <tr><td>Where are the cupcakes?</td><td>[[They]] are in the kitchen. <span class="zh">杯子蛋糕在哪？——在廚房。</span></td></tr>
   </table></div>
 
   <div class="box prac"><span class="tag">✏️ 非試不可：依劃線部分造原問句</span>
     <ol>
-      <li>The dining room is <u>between the living room and the kitchen</u>.<br>[[Where is the dining room?]]</li>
-      <li>My dogs are <u>in the park</u>.<br>[[Where are your dogs?]]</li>
-      <li>You are <u>in the hospital</u>.<br>[[Where am I?]]</li>
-      <li>My mother is <u>at the train station</u>.<br>[[Where is your mother?]]</li>
-      <li>Your bicycle is <u>between the two trees</u>.<br>[[Where is my bicycle?]]</li>
-      <li>The post office is <u>across from the supermarket</u>.<br>[[Where is the post office?]]</li>
+      <li>The dining room is <u>between the living room and the kitchen</u>. {{餐廳在客廳和廚房之間。}}<br>[[Where is the dining room?]]</li>
+      <li>My dogs are <u>in the park</u>. {{我的狗在公園。}}<br>[[Where are your dogs?]]</li>
+      <li>You are <u>in the hospital</u>. {{你在醫院。}}<br>[[Where am I?]]</li>
+      <li>My mother is <u>at the train station</u>. {{我媽媽在火車站。}}<br>[[Where is your mother?]]</li>
+      <li>Your bicycle is <u>between the two trees</u>. {{你的腳踏車在兩棵樹之間。}}<br>[[Where is my bicycle?]]</li>
+      <li>The post office is <u>across from the supermarket</u>. {{郵局在超市對面。}}<br>[[Where is the post office?]]</li>
     </ol>
   </div>
   <div class="box warn"><span class="tag">❤️ 易錯</span>
@@ -956,10 +968,10 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   </table></div>
   <div class="tw"><table>
     <tr><th>句型</th><th>問句／直述</th><th>簡答</th><th>詳答</th></tr>
-    <tr><td class="rh">直述句</td><td>It/This/That [[is]] a marker.<br>They/These/Those [[are]] pens.</td><td>—</td><td>—</td></tr>
-    <tr><td class="rh">Yes/No</td><td>Is it/this/that a horse?</td><td>Yes, it is. / No, it's not.</td><td>It/This/That is a horse. / …a zebra.</td></tr>
-    <tr><td class="rh">Yes/No</td><td>Are they/these/those foxes?</td><td>Yes, they are. / No, they're not.</td><td>They/These/Those are foxes. / …dogs.</td></tr>
-    <tr><td class="rh">What</td><td>What is it/this/that?<br>What are they/these/those?</td><td colspan="2">It/This/That is a gift.<br>They/These/Those are roses.</td></tr>
+    <tr><td class="rh">直述句</td><td>It/This/That [[is]] a marker.<br>They/These/Those [[are]] pens.<br><span class="zh">marker 麥克筆・pen 筆</span></td><td>—</td><td>—</td></tr>
+    <tr><td class="rh">Yes/No</td><td>Is it/this/that a horse?</td><td>Yes, it is. / No, it's not.</td><td>It/This/That is a horse. / …a zebra.<br><span class="zh">horse 馬・zebra 斑馬</span></td></tr>
+    <tr><td class="rh">Yes/No</td><td>Are they/these/those foxes?</td><td>Yes, they are. / No, they're not.</td><td>They/These/Those are foxes. / …dogs.<br><span class="zh">fox 狐狸</span></td></tr>
+    <tr><td class="rh">What</td><td>What is it/this/that?<br>What are they/these/those?</td><td colspan="2">It/This/That is a gift.<br>They/These/Those are roses.<br><span class="zh">gift 禮物・rose 玫瑰</span></td></tr>
   </table></div>
   <h3>地方介系詞一覽</h3>
   <div class="grid">
@@ -973,28 +985,28 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 <div class="sec-h"><div class="num">17</div><h2>🏆 隨堂總測驗（指示代名詞）</h2></div>
 <div class="sec-b">
   <ul class="mc">
-    <li>1. This is a book; _______ is a notebook.
+    <li>1. This is a book; _______ is a notebook. {{這是一本書；______ 是一本筆記本。}}
       <div class="opts"><span>(A) this</span><span>(B) that</span><span>(C) these</span><span>(D) those</span></div>
       答案：[[(B)　前句 this（這），後句配 that（那）]]</li>
-    <li>2. _______ are Mr. Wang's students.
+    <li>2. _______ are Mr. Wang's students. {{______ 是王老師的學生。}}
       <div class="opts"><span>(A) This</span><span>(B) That</span><span>(C) It</span><span>(D) Those</span></div>
       答案：[[(D)　複數用 Those]]</li>
-    <li>3. Is that your school? Yes, _______ is.
+    <li>3. Is that your school? Yes, _______ is. {{那是你的學校嗎？是的，______ 是。}}
       <div class="opts"><span>(A) this</span><span>(B) that</span><span>(C) it</span><span>(D) he</span></div>
       答案：[[(C)　簡答需用代名詞 it，不可用 this/that]]</li>
-    <li>4. _______ computer is good.
+    <li>4. _______ computer is good. {{______ 電腦很好。}}
       <div class="opts"><span>(A) This a</span><span>(B) My this</span><span>(C) This</span><span>(D) The my</span></div>
       答案：[[(C)　this/my/the/a 不可連用，擇一使用即可]]</li>
-    <li>5. _______ watches are on sale.
+    <li>5. _______ watches are on sale. {{______ 手錶正在特價。}}
       <div class="opts"><span>(A) These</span><span>(B) They</span><span>(C) It</span><span>(D) That</span></div>
       答案：[[(A)　複數 watches 需用 These（這些）來修飾]]</li>
-    <li>6. I don't like _______ sofa.（沙發）
+    <li>6. I don't like _______ sofa.（沙發） {{我不喜歡 ______ 沙發。}}
       <div class="opts"><span>(A) these</span><span>(B) those</span><span>(C) it</span><span>(D) the</span></div>
       答案：[[(D)　sofa 單數，用 this/that 或用 the 修飾]]</li>
-    <li>7. Are those your friends? Yes, _______.
+    <li>7. Are those your friends? Yes, _______. {{那些是你的朋友嗎？是的，______。}}
       <div class="opts"><span>(A) We are</span><span>(B) Those are</span><span>(C) You are</span><span>(D) They are</span></div>
       答案：[[(D)　簡答需用 those 之代名詞 they]]</li>
-    <li>8. These are dresses（洋裝）; _______ are skirts.（裙子）
+    <li>8. These are dresses（洋裝）; _______ are skirts.（裙子） {{這些是洋裝；______ 是裙子。}}
       <div class="opts"><span>(A) these</span><span>(B) those</span><span>(C) the</span><span>(D) they</span></div>
       答案：[[(B)　前句 These（這些），後句配 those（那些）]]</li>
   </ul>
@@ -1007,6 +1019,24 @@ td.rh{font-weight:900;background:#fff3d6 !important}
 
 <script>
 (function(){
+  // 把 {{中文}} 轉成「中」翻譯按鈕
+  (function(){
+    var w=document.createTreeWalker(document.querySelector('.wrap'),NodeFilter.SHOW_TEXT,null),list=[],x;
+    while((x=w.nextNode())) if(x.nodeValue.indexOf('{{')>-1) list.push(x);
+    list.forEach(function(t){
+      var parts=t.nodeValue.split(/\{\{(.+?)\}\}/g),f=document.createDocumentFragment();
+      parts.forEach(function(p,i){
+        if(i%2===0){ if(p) f.appendChild(document.createTextNode(p)); return; }
+        var b=document.createElement('button'); b.type='button'; b.className='trb'; b.textContent='中';
+        b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','顯示中文翻譯');
+        var z=document.createElement('span'); z.className='trt'; z.textContent=p; z.hidden=true;
+        b.onclick=function(){ z.hidden=!z.hidden; b.setAttribute('aria-expanded',String(!z.hidden)); };
+        f.appendChild(b); f.appendChild(z);
+      });
+      t.parentNode.replaceChild(f,t);
+    });
+  })();
+
   // 把 [[答案]] 轉成可點擊的空格
   var main=document.querySelector('.wrap');
   var walker=document.createTreeWalker(main,NodeFilter.SHOW_TEXT,null);
@@ -1076,6 +1106,11 @@ td.rh{font-weight:900;background:#fff3d6 !important}
   });
   document.getElementById('showAll').onclick=function(){all.forEach(function(b){b.classList.add('on');});update();};
   document.getElementById('hideAll').onclick=function(){all.forEach(function(b){b.classList.remove('on');});update();};
+  var zhBtn=document.getElementById('zhAll');
+  zhBtn.onclick=function(){
+    var on=zhBtn.getAttribute('aria-pressed')!=='true'; zhBtn.setAttribute('aria-pressed',String(on));
+    document.querySelectorAll('.sec .trb').forEach(function(b){ b.nextElementSibling.hidden=!on; b.setAttribute('aria-expanded',String(on)); });
+  };
   update();
 })();
 </script>
